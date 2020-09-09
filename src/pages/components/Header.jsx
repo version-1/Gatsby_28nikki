@@ -8,8 +8,6 @@ import NavBar from '../components/molecules/NavBar'
 import TagBar from '../components/molecules/TagBar'
 
 
-
-
 export default ({ page }) => {
   const {
     site: {

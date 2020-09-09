@@ -40,7 +40,7 @@ padding: 0;
 
 const TagBar = (props) => {
   const {
-    tagsAllMarkdownRemark: { group: tags },
+    tagsAllMarkdownRemark: { group: tags, totalCount },
   } = useStaticQuery(
     graphql`
       query {
@@ -53,10 +53,11 @@ const TagBar = (props) => {
       }
     `
   )
-
   return (
       <TagList>
-            {tags.slice(0, 8).map(({ tag }) => (
+            {tags.sort(function(a, b) {
+              return  b.totalCount - a.totalCount;
+            }).slice(0, 6).map(({ tag, totalCount }) => (
             <li key={tag}>
               <Link to={`tag/${tag}`}>#{tag}</Link>
             </li>
