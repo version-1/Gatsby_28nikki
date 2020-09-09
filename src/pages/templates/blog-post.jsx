@@ -6,7 +6,7 @@ export default ({
   data: {
     markdownRemark: {
       html,
-      frontmatter: { title, categories, tags },
+      frontmatter: { title, categories, tags, pict },
     },
   },
 }) => {
@@ -35,6 +35,7 @@ export const query = graphql`
         title
         categories
         tags
+        
       }
     }
   }
