@@ -1,7 +1,9 @@
 const path = require("path")
 const { createFilePath } = require("gatsby-source-filesystem")
+
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions
+  const { createNodeField } = actions;
+
   if (node.internal.type === "MarkdownRemark") {
     const slug = createFilePath({ node, getNode, basePath: "pages" })
     createNodeField({
@@ -40,7 +42,11 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `)
 
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  if (result.errors) {
+    reporter.panic(result.errors)
+  }
+  
+  const posts = result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve("./src/pages/templates/blog-post.jsx"),
@@ -51,7 +57,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-   result.data.categoriesAllMarkdownRemark.group.forEach(({ category }) => {
+   const categories = result.data.categoriesAllMarkdownRemark.group.categories.forEach(({ category }) => {
      createPage({
        path: `/category/${category}/`,
        component: path.resolve("./src/pages/templates/categories.jsx"),
@@ -62,12 +68,12 @@ exports.createPages = async ({ graphql, actions }) => {
      })
    })
 
-   result.data.tagsAllMarkdownRemark.group.forEach(({ tag }) => {
+   const tags = result.data.tagsAllMarkdownRemark.group.tags.forEach(({ tag }) => {
     createPage({
       path: `/tag/${tag}/`,
       component: path.resolve("./src/pages/templates/tags.jsx"),
       context: {
-        // GraphQLのクエリの $category 変数に設定する値
+        // GraphQLのクエリの $tag 変数に設定する値
         tag,
       },
     })

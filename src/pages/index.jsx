@@ -2,9 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "./components/Layout"
 import ArticleCard from "./components/atoms/ArticleCard"
-
-
-
+import Img from "gatsby-image"
 
 export default ({
   data: {
@@ -17,13 +15,13 @@ export default ({
       ({
         node: {
           id,
-          frontmatter: { title, date },
+          frontmatter: { title, date, avatar },
           fields: { slug },
           excerpt,
-        }, index
+        }, node,
       }) => (
         <>
-        <ArticleCard key={id} i={index} type={index == 0 ? "large" : "default"} date={date} to={slug} originalTitle={title} excerpt={excerpt}/>
+        <ArticleCard key={id} type="default" avatar={avatar?.childImageSharp.fluid} date={date} to={slug} originalTitle={title} excerpt={excerpt}/>
         </>
       )
     )}
@@ -39,7 +37,19 @@ export const query = graphql`
           id
           frontmatter {
             title
-            date(formatString: "YYYY年MM月DD日")
+            date(formatString: "YYYY/MM/DD")
+            categories
+            tags
+            avatar {
+              childImageSharp {
+                fluid(maxWidth: 500, quality: 50) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
+                fixed(width: 125, height: 125) {
+                  ...GatsbyImageSharpFixed
+                }
+              }
+            }
           }
           fields {
             slug

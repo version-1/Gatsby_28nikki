@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
+import Img from "gatsby-image"
 import styled from 'styled-components'
 import Styles from '../../../styles/style';
 
@@ -68,14 +69,14 @@ const Description = styled.div`
 `;
 
 const ArticleCardDefault = (props) => {
-  const { title, to, pict, date } = props;
+  const { title, to, avatar, date } = props;
 
   return (
     <Card>
     <Link to={to}>
       <Pict>
-        <h3>{title}</h3>
-        <img src={pict} alt={title & date} />
+        <Title>{title}</Title>
+        <Img fluid={avatar} alt={title & date} />
       </Pict>
       </Link>
   </Card>
@@ -83,14 +84,14 @@ const ArticleCardDefault = (props) => {
 }
 
 const ArticleCardLarge = (props) => {
-    const { title, to, pict, date, text } = props;
+    const { title, to, avatar, date, text} = props;
     
     return (
       <CardLarge>
       <Link to={to}>
         <Pict>
-          <h3>{title}</h3>
-          <img src={pict} alt={title & date} />
+          <Title>{title}</Title>
+          <Img fluid={avatar} alt={title & date} />
         </Pict>
         </Link>
         <Info>
@@ -109,11 +110,11 @@ const map = {
 
 
 const ArticleCard = (props) => {
-  const { originalTitle, to, pict, date, excerpt, type} = props;
+  const { originalTitle, to, avatar, date, excerpt, type} = props;
   const component = map[type] || map.default; 
   const title = originalTitle.length > 30 ? originalTitle.slice(0, 30) : originalTitle;
   const text = excerpt.length > 140 ? excerpt.slice(0, 30) : excerpt;
-  return React.createElement(component, { title, to, pict, date, text} )
+  return React.createElement(component, { title, to, avatar, date, text} )
 };
 
 export default ArticleCard

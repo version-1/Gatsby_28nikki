@@ -3,6 +3,7 @@ title: "こんにちは"
 date: "2020-06-05"
 categories: ["aiueo", "hai"]
 tags: ["tag1", "tag2","tag3","tag4","tag5","tag6"]
+avatar: './assets/sample.jpg'
 ---
 
 書いたよ〜〜〜〜

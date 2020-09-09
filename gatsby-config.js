@@ -13,16 +13,24 @@ module.exports = {
     description: "アラサー女性のカナダ社会人留学記録"
   },
   plugins: [
-    "gatsby-transformer-remark",
+    // "gatsby-transformer-remark",
     "gatsby-plugin-react-helmet",
     `gatsby-plugin-styled-components`,
-    
     `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`, 
     {
       resolve: "gatsby-source-filesystem",
       options: {
         path: `${__dirname}/blog`,
         name: "blog",
+      },
+    },
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: "images",
+        path: path.join(__dirname, `blog`, `assets`)
+
       },
     },
     {
