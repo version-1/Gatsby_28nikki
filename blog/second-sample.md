@@ -3,8 +3,11 @@ title: "2つ目だよ。１２３４５６７８９０１２３４５６７８�
 date: "2020-06-05"
 categories: ["aiueo", "hai", "racros"]
 tags: ["tag1", "tag2","tag3","tag4","tag5","tag6"]
+avator: './assets/sample.jpg'
 ---
+![Alt text here](./assets/sample.jpg)
 
 この間ラクロスのプロの試合に友達と行ってきました。
 この間ラクロスのプロの試合に友達と行ってきました。
 この間ラクロスのプロの試合に友達と行ってきました。
+
