@@ -5,9 +5,10 @@ categories: ["aiueo", "hai", "racros"]
 tags: ["tag1", "tag2"]
 avatar: './assets/sample.jpg'
 ---
-<!-- ![Alt text here](./src/images/sample.jpg) -->
+![Alt text here](./src/images/sample.jpg)
 
 この間ラクロスのプロの試合に友達と行ってきました。
 この間ラクロスのプロの試合に友達と行ってきました。
 この間ラクロスのプロの試合に友達と行ってきました。
 
+![Alt text here](./src/images/sample.jpg)
