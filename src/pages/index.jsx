@@ -1,6 +1,7 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "./components/Layout"
+import ArticleCard from "./components/atoms/ArticleCard"
 
 
 
@@ -19,15 +20,11 @@ export default ({
           frontmatter: { title, date },
           fields: { slug },
           excerpt,
-        },
+        }, index
       }) => (
-        <div key={id} >
-          <div >{date}</div>
-          <h2>
-            <Link to={slug}>{title}</Link>
-          </h2>
-          <p>{excerpt}</p>
-        </div>
+        <>
+        <ArticleCard key={id} i={index} type={index == 0 ? "large" : "default"} date={date} to={slug} originalTitle={title} excerpt={excerpt}/>
+        </>
       )
     )}
   </Layout>
