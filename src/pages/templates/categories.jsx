@@ -32,7 +32,7 @@ export default ({
 }
 
 export const pageQuery = graphql`
-  query($category: String!) {
+  query($category: String) {
     allMarkdownRemark(
       sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { categories: { in: [$category] } } }
