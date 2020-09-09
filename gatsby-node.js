@@ -46,7 +46,7 @@ exports.createPages = async ({ graphql, actions }) => {
     reporter.panic(result.errors)
   }
   
-  const posts = result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
     createPage({
       path: node.fields.slug,
       component: path.resolve("./src/pages/templates/blog-post.jsx"),
@@ -57,7 +57,7 @@ exports.createPages = async ({ graphql, actions }) => {
     })
   })
 
-   const categories = result.data.categoriesAllMarkdownRemark.group.categories.forEach(({ category }) => {
+   result.data.categoriesAllMarkdownRemark.group.forEach(({ category }) => {
      createPage({
        path: `/category/${category}/`,
        component: path.resolve("./src/pages/templates/categories.jsx"),
@@ -68,7 +68,7 @@ exports.createPages = async ({ graphql, actions }) => {
      })
    })
 
-   const tags = result.data.tagsAllMarkdownRemark.group.tags.forEach(({ tag }) => {
+   const tags = result.data.tagsAllMarkdownRemark.group.forEach(({ tag }) => {
     createPage({
       path: `/tag/${tag}/`,
       component: path.resolve("./src/pages/templates/tags.jsx"),

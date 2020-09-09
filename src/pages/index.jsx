@@ -2,7 +2,6 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "./components/Layout"
 import ArticleCard from "./components/atoms/ArticleCard"
-import Img from "gatsby-image"
 
 export default ({
   data: {
