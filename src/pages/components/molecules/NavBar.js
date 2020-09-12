@@ -56,16 +56,23 @@ const NavBar = (props) => {
   return (
       <NavList>
             <li>
-              <Link to="/sample-page/">サンプルページ</Link>
+              <Link to="category/カナダ留学/">カナダ留学</Link>
             </li>
             <li>
-              <Link to="/sample-page/">サンプルページ</Link>
+              <Link to="category/英語学習/">英語学習</Link>
             </li>
-          {categories.map(({ category, totalCount }) => (
-            <li key={category}>
-              <Link to={`category/${category}`}>{category}</Link>
+            <li>
+              <Link to="category/レシピ/">レシピ</Link>
             </li>
-          ))}
+            <li>
+              <Link to="category/プログラミング/">プログラミング</Link>
+            </li>
+            {/* <li>
+              <Link to="/sample-page/">お問い合わせ</Link>
+            </li> */}
+            <li>
+              <Link to="category/about/">お問い合わせ</Link>
+            </li>
       </NavList>
   )
 };

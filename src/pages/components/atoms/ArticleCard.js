@@ -4,6 +4,7 @@ import Img from "gatsby-image"
 import styled from 'styled-components'
 import Styles from '../../../styles/style';
 
+
 const Card = styled.div`
   cursor: pointer;
   box-sizing: border-box;
@@ -11,59 +12,60 @@ const Card = styled.div`
   font-weight: 800;
   font-size: ${Styles.FONT_SIZE.MIDDLE}px;
   width: 250px;
-  border-radius: ${Styles.BORDER_RADIUS};
-  border: 2px solid ${Styles.COLOR.LIGHTGLAY};
-  margin: 8px 4px;
+  height: 180px;
+  margin: 8px 0;
   padding: 0;
   position: relative;
 `;
 
+// border: 1px solid #ccc;
+// border-radius: 8px;
+
 const Pict = styled.div`
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    background: #ccc;
+    max-width: ${props => props.type == "large" ? '640px' : '100%'};
+    height: ${props => props.type == "large" ? '430px' : '100%' };
+    padding: 4px;
     box-sizing: border-box;
-    img {
-        width: 100%;
-        height: 100%;
-        box-sizing: border-box;
-        border: 1px solid ${Styles.COLOR.LIGHTGLAY};
-        border-radius: ${Styles.BORDER_RADIUS} px;
-    }
 `;
 
 const Title = styled.h3`
-    width: 100%;
+    width: 70%;
     margin: 4px;
-    padding: 0;
+    padding: 4px;
     font-size: 0.8em;
-    background: ${Styles.COLOR.WHITE};
     position: absolute;
     top: 4px;
     left: 4px;
     z-index: 5;
+    span {
+      background-color: rgba(250,250,250,0.7);
+      padding: 2px 1px;
+    }
 `;
 
  const CardLarge = styled(Card)`
-  font-size: ${Styles.FONT_SIZE.LARGE}px;
-  width: 100%;
+    font-size: ${Styles.FONT_SIZE.HEADER}px;
+    margin: 32px 0;
+    width: 650px;
+    height: 500px;
  `;
 
  const Info = styled.div`
     margin: 4px 8px;
     display: flex;
+    align-items: baseline;
+    justify-content: space-evenly;
+    height: 70px;
+    box-sizing: border-box;
 `;
 
 const SubInfo = styled.div`
-    margin: 4px 8px;
     font-size: ${Styles.FONT_SIZE.SMALL}px;
     color: ${Styles.COLOR.LIGHTGLAY};
 `;
 
 const Description = styled.div`
-    margin: 4px 8px;
+    max-width: 500px;
     font-size: ${Styles.FONT_SIZE.MIDDLE}px;
     color: ${Styles.COLOR.SECONDARY};
 `;
@@ -75,8 +77,21 @@ const ArticleCardDefault = (props) => {
     <Card>
     <Link to={to}>
       <Pict>
-        <Title>{title}</Title>
-        <Img fluid={avatar} alt={title & date} />
+      <Title><span>{title}</span></Title>
+        <Img fluid={avatar} alt={title & date}
+         imgStyle= {{
+           width: '100%',
+           height: '100%', 
+           objectFit: 'cover', 
+           objectPosition: 'center top', 
+           }}　
+           style= {{
+            width: '250px',
+            height: '180px', 
+            boxSizing: 'border-box', 
+            border: '1px solid #ccc',
+            borderRadius: '4px',
+           }}/>
       </Pict>
       </Link>
   </Card>
@@ -84,14 +99,27 @@ const ArticleCardDefault = (props) => {
 }
 
 const ArticleCardLarge = (props) => {
-    const { title, to, avatar, date, text} = props;
+    const { title, to, avatar, date, text, type} = props;
     
     return (
       <CardLarge>
       <Link to={to}>
-        <Pict>
-          <Title>{title}</Title>
-          <Img fluid={avatar} alt={title & date} />
+        <Pict type={type}>
+          <Title><span>{title}</span></Title>
+          <Img fluid={avatar} alt={title & date}
+            imgStyle= {{
+              width: '100%',
+              height: '100%', 
+              objectFit: 'cover', 
+              objectPosition: 'center center', 
+              }}　
+              style= {{
+                width: '100%',
+                height: '100%', 
+                boxSizing: 'border-box', 
+                border: '1px solid #ccc',
+                borderRadius: '4px',
+           }}/>
         </Pict>
         </Link>
         <Info>
@@ -114,7 +142,7 @@ const ArticleCard = (props) => {
   const component = map[type] || map.default; 
   const title = originalTitle.length > 30 ? originalTitle.slice(0, 30) : originalTitle;
   const text = excerpt.length > 140 ? excerpt.slice(0, 30) : excerpt;
-  return React.createElement(component, { title, to, avatar, date, text} )
+  return React.createElement(component, { title, to, avatar, date, text, type} )
 };
 
 export default ArticleCard

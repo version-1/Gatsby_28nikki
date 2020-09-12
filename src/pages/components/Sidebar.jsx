@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import styled from 'styled-components'
+import Button from "./atoms/Button"
 
 export default () => {
   const {
@@ -37,16 +38,7 @@ export default () => {
   return (
     <SideBar>
       <div>
-        <h3>固定ページ</h3>
-        <ul>
-          <li>
-            <Link to="/sample-page/">サンプルページ</Link>
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>最近の投稿</h3>
+        <Button text1="最近の" text2="投稿" to="/" type="secondary"/>
         <ul>
           {recentlyBlogs.map(
             ({
@@ -65,7 +57,7 @@ export default () => {
       </div>
 
       <div>
-        <h3>カテゴリー</h3>
+      <Button text1="分類" to="/" type="primary"/>
         <ul>
           {categories.map(({ category, totalCount }) => (
             <li key={category}>

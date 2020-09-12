@@ -105,22 +105,22 @@ h1 {
 
 
 const ButtonDefault = (props) => {
-  const { onClick, text, to, type } = props;
+  const { onClick, text1, text2, to, type } = props;
   return (
     <Link to={to}>
       <ButtonElementDefault onClick={onClick}>
-      <ButtonText><span>{text}</span></ButtonText>
+      <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
       </ButtonElementDefault>
     </Link>
   )
 }
 
 const ButtonPrimary = (props) => {
-  const { onClick, text, to } = props;
+  const { onClick, text1, text2, to } = props;
   return (
     <Link to={to}>
       <ButtonElementPrimary onClick={onClick}>
-      <ButtonText><span>{text}</span></ButtonText>
+      <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
       </ButtonElementPrimary>
     </Link>
   )
@@ -128,22 +128,22 @@ const ButtonPrimary = (props) => {
 
 
 const ButtonSecondary = (props) => {
-  const { onClick, text, to } = props;
+  const { onClick, text1, text2, to } = props;
   return (
     <Link to={to}>
       <ButtonElementSecondary onClick={onClick}>
-      <ButtonText><span>{text}</span></ButtonText>
+      <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
       </ButtonElementSecondary>
     </Link>
   )
 }
 
 const ButtonHeader = (props) => {
-  const { onClick, text, to } = props;
+  const { onClick, text1, text2, to } = props;
   return (
     <Link to={to}>
       <ButtonElementHeader onClick={onClick}>
-      <ButtonTextHeader><h1>{text}</h1></ButtonTextHeader>
+  <ButtonTextHeader><h1>{text1}{text2 ? <br /> : "" }{text2}</h1></ButtonTextHeader>
       </ButtonElementHeader>
     </Link>
   )
@@ -162,9 +162,9 @@ const ButtonElements = (props) => {
 }
 
 const Button = (props) => {
-  const { to, text, onClick, type } = props;
+  const { to, text1, text2,  onClick, type } = props;
   const component = map[type] || map.default; 
-  return React.createElement(component, { onClick, text, to } )
+  return React.createElement(component, { onClick, text1, text2, to } )
 };
 
 export default Button

@@ -1,9 +1,9 @@
 ---
 title: "2つ目だよ。１２３４５６７８９０１２３４５６７８９１２４５６７８９０"
 date: "2020-06-05"
-categories: ["留学", "英語学習", "レシピ", "お問い合わせ"]
+categories: ["レシピ"]
 tags: ["tag1", "tag2","tag9","tag10"]
-avatar: './assets/sample.jpg'
+avatar: './assets/10351507_p0.jpg'
 ---
 ![Alt text here](./assets/sample.jpg)
 

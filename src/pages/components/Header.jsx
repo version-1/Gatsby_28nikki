@@ -41,7 +41,7 @@ export default ({ page }) => {
     <HeaderBar>
       <Titlebar>
       {page === "top" && <div>&nbsp;</div>}
-      <Button text={title} to="/" type="title"/>
+      <Button text1={title} to="/" type="title"/>
         <p>{description}</p>
         </Titlebar>
           <NavBar />
