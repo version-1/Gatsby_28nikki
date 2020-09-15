@@ -1,5 +1,5 @@
 import React from "react"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import { Link } from "gatsby"
 import styled from 'styled-components'
 import Styles from '../../../styles/style';
 
@@ -38,21 +38,6 @@ padding: 0;
 // }
 
 const NavBar = (props) => {
-  const {
-    categoriesAllMarkdownRemark: { group: categories },
-  } = useStaticQuery(
-    graphql`
-      query {
-        categoriesAllMarkdownRemark: allMarkdownRemark {
-          group(field: frontmatter___categories) {
-            category: fieldValue
-            totalCount
-          }
-        }
-      }
-    `
-  )
-
   return (
       <NavList>
             <li>

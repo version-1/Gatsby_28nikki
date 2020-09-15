@@ -1,10 +1,10 @@
 import React from "react"
 import styled from 'styled-components'
 
-export default ({ children, sidebar }) => (
+export default ({ children, sidebar}) => (
   <Flex >
     <Article >{children}</Article>
-    <div >{sidebar}</div>
+    {/* <div>{sidebar}</div> */}
   </Flex>
 )
 
@@ -13,5 +13,6 @@ const Flex = styled.div`
 `
 
 const Article = styled.div`
-  width: 100%;
+  width: 860px;
+  margin: 0 auto;
 `

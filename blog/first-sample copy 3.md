@@ -1,12 +1,12 @@
 ---
-title: "留学1"
-date: "2020-06-03"
+title: "留学20"
+date: "2020-12-30"
 categories: ["留学"]
 tags: ["tag1", "tag2","tag3","tag4","tag5","tag6","tag7","tag8","tag9"]
 avatar: './assets/i_05.png'
 ---
 
-書いたよ〜〜〜〜2
+書いたよ〜〜〜〜3
 
 これどう表示されるんかな
 
