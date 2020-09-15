@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from 'styled-components'
-import Styles from '../../../styles/style';
+import { Styles, BreakPoints, Responsive } from '../../../styles/style'
 
 
 const Card = styled.div`
@@ -14,14 +14,14 @@ const Card = styled.div`
   font-size: ${Styles.FONT_SIZE.MIDDLE}px;
   width: 250px;
   height: 180px;
-  margin: 0px 16px 16px 0px;
+  margin: 0px 16px 32px 0px;
   padding: 0;
   position: relative;
 `;
 
 const Pict = styled.div`
-    max-width: ${props => props.type === "large" ? '640px' : '100%'};
-    height: ${props => props.type === "large" ? '430px' : '100%' };
+    max-width: 100%;
+    height: 100%;
     padding: 4px;
     box-sizing: border-box;
 `;
@@ -72,28 +72,51 @@ const CardSeveral = styled(Card)`
  const CardLarge = styled(Card)`
     font-size: ${Styles.FONT_SIZE.HEADER}px;
     margin: 32px 0;
-    width: 650px;
-    height: 500px;
+    max-width: ${BreakPoints.sm}px;
+    min-width: ${BreakPoints.sm}px;
+    height: ${BreakPoints.sm/3*2}px;
+    ${Responsive("md")} {
+      max-width: 100%;
+      min-width: 100%;
+      height: 100%;
+    }
  `;
+
+ const PictLarge = styled.div`
+    max-width: ${BreakPoints.sm}px;
+    height: ${BreakPoints.sm/3*2}px;
+    ${Responsive("md")} {
+      max-width: 100%;
+    }
+    ${Responsive("sm")} {
+      height: 300px;
+    }
+    box-sizing: border-box;
+`;
 
  const Info = styled.div`
     margin: 4px 8px;
     display: flex;
     align-items: baseline;
-    justify-content: space-evenly;
+    justify-content: flex-start;
     height: 70px;
     box-sizing: border-box;
 `;
 
 const SubInfo = styled.div`
+    font-family: ${Styles.FONT_FAMILY.EN};
     font-size: ${Styles.FONT_SIZE.SMALL}px;
     color: ${Styles.COLOR.LIGHTGLAY};
+    margin-right: 20px;
 `;
 
 const Description = styled.div`
-    max-width: 500px;
+    width: 100%;
+    color: ${Styles.COLOR.LIGHTGLAY};
     font-size: ${Styles.FONT_SIZE.MIDDLE}px;
-    color: ${Styles.COLOR.SECONDARY};
+    ${Responsive("sm")} {
+      font-size: ${Styles.FONT_SIZE.SMALL}px;
+    }
 `;
 
 
@@ -140,8 +163,8 @@ const ArticleCardSeveral = (props) => {
            objectPosition: 'center top', 
            }}　
            style= {{
-            width: '250px',
-            height: '180px', 
+            width: '100%',
+            height: '100%', 
             boxSizing: 'border-box', 
             border: '1px solid #ccc',
             borderRadius: '4px',
@@ -157,7 +180,7 @@ const ArticleCardLarge = (props) => {
     return (
       <CardLarge>
       <Link to={to}>
-        <Pict type={type}>
+        <PictLarge>
           <Title><span>{title}</span></Title>
           <Img fluid={avatar} alt={title & date}
             imgStyle= {{
@@ -173,7 +196,7 @@ const ArticleCardLarge = (props) => {
                 border: '1px solid #ccc',
                 borderRadius: '4px',
            }}/>
-        </Pict>
+        </PictLarge>
         </Link>
         <Info>
             <SubInfo>{date}</SubInfo>

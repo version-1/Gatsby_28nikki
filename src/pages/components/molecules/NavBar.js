@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from 'styled-components'
-import Styles from '../../../styles/style';
+import { Styles } from '../../../styles/style';
 
 const NavList = styled.ul`
 display: flex;
@@ -18,7 +18,6 @@ padding: 0;
   padding: 8px 0;
   box-sizing: border-box;
   text-align: center;
-  border-bottom: 2px solid ${Styles.COLOR.WHITE};
 }
 >li >a {
   color: ${Styles.COLOR.WHITE}

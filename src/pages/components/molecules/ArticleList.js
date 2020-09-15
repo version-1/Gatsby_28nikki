@@ -2,7 +2,7 @@ import React from "react"
 import styled from 'styled-components'
 import ArticleCard from "../atoms/ArticleCard"
 import Button from "../atoms/Button"
-import Styles from '../../../styles/style';
+import { Styles } from '../../../styles/style';
 
 const Articles = styled.div`
   display: flex;

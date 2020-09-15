@@ -1,11 +1,12 @@
-@import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Sawarabi+Gothic");
 @import url("https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Arimo:wght@400;700&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Sawarabi+Gothic");
 @import url("https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@700&display=swap");
+
 body {
-  background: #fcfcfc;
+  background: #f5f7f5;
   color: #ododod;
   font-family: "Arimo", sans-serif, "Sawarabi Gothic";
   margin: 0;
@@ -22,4 +23,4 @@ l {
   list-style: none; }
 
 .l_flex {
-  display: flex; }
+  display: flex; } */

@@ -1,7 +1,7 @@
 import React from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import styled from 'styled-components'
-import Styles from '../../../styles/style';
+import { Styles } from '../../../styles/style';
 
 const TagList = styled.ul`
 display: flex;

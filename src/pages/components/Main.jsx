@@ -4,7 +4,6 @@ import styled from 'styled-components'
 export default ({ children, sidebar}) => (
   <Flex >
     <Article >{children}</Article>
-    {/* <div>{sidebar}</div> */}
   </Flex>
 )
 

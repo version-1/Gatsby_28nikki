@@ -1,11 +1,15 @@
----
-title: "プライバシーポリシー"
-date: "2019-07-29"
-categories: ["about"]
----
+import React from "react"
+import Layout from "./components/Layout"
 
-
-### 当サイトに掲載されている広告について
+export default () => (
+  <Layout>
+    <h1>サンプルページ</h1>
+    <p>
+      これはサンプルページです。同じ位置に固定され、(多くのテーマでは)
+      サイトナビゲーションメニューに含まれる点がブログ投稿とは異なります。まずは、サイト訪問者に対して自分のことを説明する自己紹介ページを作成するのが一般的です。たとえば以下のようなものです。
+    </p>
+    <blockquote class="wp-block-quote">
+    ### 当サイトに掲載されている広告について
 
 
 当サイトでは、第三者配信の広告サービス（[Googleアドセンス](http://www.google.com/adsense/start/)、[A8.net](http://www.a8.net/)、[Amazonアソシエイト](https://affiliate.amazon.co.jp/)など）を利用しています。  
@@ -54,3 +58,7 @@ categories: ["about"]
 
 当サイトは完全リンクフリーです。トップページ、記事等、正規に公開しているページであれば、ご自由にリンクしていただいて問題ありません。ただし、画像への直リンクなどは禁止させていただきます。
 
+
+    </blockquote>
+  </Layout>
+)

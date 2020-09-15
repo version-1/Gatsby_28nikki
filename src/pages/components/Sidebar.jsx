@@ -1,6 +1,7 @@
 import React from "react"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import styled from 'styled-components'
+import { Styles, BreakPoints, Responsive } from '../../styles/style'
 import Button from "./atoms/Button"
 
 export default () => {
@@ -37,7 +38,6 @@ export default () => {
   )
   return (
     <SideBar>
-      <div>
         <Button text1="最近の" text2="投稿" to="/" type="secondary"/>
         <ul>
           {recentlyBlogs.map(
@@ -48,31 +48,36 @@ export default () => {
                 fields: { slug },
               },
             }) => (
-              <li key={id}>
+              <List key={id}>
                 <Link to={slug}>{title}</Link>
-              </li>
+              </List>
             )
           )}
         </ul>
-      </div>
 
-      <div>
       <Button text1="分類" to="/" type="primary"/>
         <ul>
           {categories.map(({ category, totalCount }) => (
-            <li key={category}>
+            <List key={category}>
               <Link to={`category/${category}`}>{category}</Link> ( {totalCount}{" "}
               )
-            </li>
+            </List>
           ))}
         </ul>
-      </div>
     </SideBar>
   )
 }
 
 const SideBar = styled.div`
-  min-width: 200px;
-  margin: 0;
-  padding: 8px;
+  width: ${BreakPoints["md"] - BreakPoints["sm"] - 16}px;
+  margin: 16px 0;
+  padding: 8px 0 0 16px;
+  font-size: ${Styles.FONT_SIZE.DEFAULT}px;
+  ${Responsive("md")} {
+    display: none; 
+  }
+`
+
+const List = styled.li`
+  margin: 0 8px 4px;
 `

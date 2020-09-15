@@ -1,11 +1,11 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from 'styled-components'
-import Styles from '../../../styles/style';
+import { Styles } from '../../../styles/style';
 
 const commonStyle = {
     width: 80,
-    height: 80
+    height: 65
 }
 
 const ButtonOriginal = styled.div`
@@ -90,6 +90,7 @@ const ButtonElementHeader = styled(ButtonOriginal)`
   color: ${Styles.COLOR.WHITE};
   background: ${Styles.COLOR.SECONDARY};
   border: 2px solid ${Styles.COLOR.WHITE};
+  margin-right: 20px;
 `;
 
 const ButtonTextHeader = styled(ButtonText)`
@@ -109,7 +110,7 @@ const ButtonDefault = (props) => {
   return (
     <Link to={to}>
       <ButtonElementDefault onClick={onClick}>
-      <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
+       <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
       </ButtonElementDefault>
     </Link>
   )
@@ -120,7 +121,7 @@ const ButtonPrimary = (props) => {
   return (
     <Link to={to}>
       <ButtonElementPrimary onClick={onClick}>
-      <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
+        <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
       </ButtonElementPrimary>
     </Link>
   )
@@ -132,7 +133,7 @@ const ButtonSecondary = (props) => {
   return (
     <Link to={to}>
       <ButtonElementSecondary onClick={onClick}>
-      <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
+       <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
       </ButtonElementSecondary>
     </Link>
   )
@@ -143,7 +144,7 @@ const ButtonHeader = (props) => {
   return (
     <Link to={to}>
       <ButtonElementHeader onClick={onClick}>
-  <ButtonTextHeader><h1>{text1}{text2 ? <br /> : "" }{text2}</h1></ButtonTextHeader>
+        <ButtonTextHeader><h1>{text1}{text2 ? <br /> : "" }{text2}</h1></ButtonTextHeader>
       </ButtonElementHeader>
     </Link>
   )

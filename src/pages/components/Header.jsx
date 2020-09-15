@@ -2,7 +2,7 @@ import React from "react"
 import Helmet from "react-helmet"
 import { useStaticQuery, Link, graphql } from "gatsby"
 import styled from 'styled-components'
-import Styles from '../../styles/style';
+import { Styles } from '../../styles/style';
 import Button from "./atoms/Button"
 import NavBar from '../components/molecules/NavBar'
 import TagBar from '../components/molecules/TagBar'
@@ -40,12 +40,12 @@ export default ({ page }) => {
        />
     <HeaderBar>
       <Titlebar>
-      {page === "top" && <div>&nbsp;</div>}
-      <Button text1={title} to="/" type="title"/>
-        <p>{description}</p>
+        {page === "top" && <div>&nbsp;</div>}
+        <Button text1={title} to="/" type="title"/>
+        {/* <p>{description}</p> */}
+        <NavBar />
         </Titlebar>
-          <NavBar />
-          <TagBar />
+          {/* <TagBar /> */}
     </HeaderBar>
     </>
   )
@@ -53,15 +53,21 @@ export default ({ page }) => {
 
 
 const HeaderBar = styled.header`
-  min-height: 100px;
   margin: 0;
+  padding: 4px 0 4px;
   background: ${Styles.COLOR.SECONDARY}
 `
 
 const Titlebar = styled.div`
-  min-height: 100px;
   width: 100%;
+  border-bottom: 2px solid ${Styles.COLOR.WHITE};
   margin: 0;
-  display: flex
+  display: flex;
+  align-items: flex-end;
+  p {
+    color: ${Styles.COLOR.WHITE};
+    font-size: ${Styles.FONT_SIZE.SMALL}px;
+    margin-left: 32px;
+  }
 `
 
