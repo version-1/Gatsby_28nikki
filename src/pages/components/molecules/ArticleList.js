@@ -2,14 +2,15 @@ import React from "react"
 import styled from 'styled-components'
 import ArticleCard from "../atoms/ArticleCard"
 import Button from "../atoms/Button"
-import { Styles } from '../../../styles/style';
+import {categoryMap} from "../../../styles/maps"
 
 const Articles = styled.div`
   display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  padding: 0;
+  justify-content: space-between;
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 `;
 
 const Title = styled.div`
@@ -24,38 +25,31 @@ const Title = styled.div`
   margin-bottom: 8px;
 `;
 
-const Explanation = styled.p`
-  font-size: ${Styles.FONT_SIZE.MIDDLE};
-  color: ${Styles.COLOR.LIGHTGLAY};
-  margin-left: 32px;
-`;
-
 const ArticleList = (props) => {
   const {
     blogs,
-    name
+    category
     } = props;
   return (
     <>
-    <Title>
-      <Button type="secondary" text1={name} to={`category/${name}`}/>
-      {/* <Explanation>ご飯食べたいな</Explanation> */}
-    </Title>
-    <Articles>
-    {blogs.map(
-      ({
-        node: {
-          id,
-          frontmatter: { title, date, avatar },
-          fields: { slug },
-          excerpt,
-        }
-      }) => (
-         <ArticleCard key={title} avatar={avatar?.childImageSharp.sizes} date={date} to={slug} originalTitle={title} excerpt={excerpt}/>
-      )
-    )}
-    <ArticleCard key={name} to={`category/${name}`} originalTitle={name} type="several" excerpt={name} />
-    </Articles>
+      <Title>
+        <Button type="secondary" text1={categoryMap[category].name} to={`category/${categoryMap[category].url}/`}/>
+      </Title>
+      <Articles>
+        {blogs.map(
+          ({
+            node: {
+              id,
+              frontmatter: { title, date, avatar },
+              fields: { slug },
+              excerpt,
+            }
+          }) => (
+            <ArticleCard key={title} avatar={avatar?.childImageSharp.sizes} date={date} to={slug} originalTitle={title} excerpt={excerpt}/>
+          )
+        )}
+        <ArticleCard key={category} to={`category/${categoryMap[category].url}/`} originalTitle={categoryMap[category].name} type="several" excerpt={category} />
+     </Articles>
     </>
   )
 }

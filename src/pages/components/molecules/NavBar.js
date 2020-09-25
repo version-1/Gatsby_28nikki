@@ -2,6 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from 'styled-components'
 import { Styles, Responsive } from '../../../styles/style';
+import {categoryMap} from '../../../styles/maps';
 
 const NavList = styled.ul`
 display: flex;
@@ -9,6 +10,9 @@ width: 100%;
 justify-content: flex-end;
 margin: 0;
 padding: 0;
+  ${Responsive("md")} {
+    flex-wrap: wrap;
+  }
 
 >li {
   transition: .2s;
@@ -44,16 +48,22 @@ const NavBar = (props) => {
   return (
       <NavList>
             <li>
-              <Link to="category/カナダ留学/">カナダ留学</Link>
+  <Link to="category/study-abroad/">{categoryMap["study-abroad"].name}</Link>
             </li>
             <li>
-              <Link to="category/英語学習/">英語学習</Link>
+              <Link to="category/english/">{categoryMap["english"].name}</Link>
             </li>
             <li>
-              <Link to="category/レシピ/">レシピ</Link>
+              <Link to="category/recipe/">{categoryMap["recipe"].name}</Link>
             </li>
             <li>
-              <Link to="category/プログラミング/">プログラミング</Link>
+              <Link to="category/programming/">{categoryMap["programming"].name}</Link>
+            </li>
+            <li>
+              <Link to="category/health/">{categoryMap["health"].name}</Link>
+            </li>
+            <li>
+              <Link to="category/others/">{categoryMap["others"].name}</Link>
             </li>
       </NavList>
   )

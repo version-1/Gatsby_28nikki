@@ -1,7 +1,7 @@
 ---
 title: "レシピ1"
 date: "2020-06-05"
-categories: ["レシピ"]
+categories: ["recipe"]
 tags: ["tag1", "tag2","tag9","tag10"]
 avatar: './assets/10351507_p0.jpg'
 ---

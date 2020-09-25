@@ -6,9 +6,7 @@ import Button from "./atoms/Button"
 
 export default () => {
   const {
-    recentlyAllMarkdownRemark: { edges: recentlyBlogs },
-    categoriesAllMarkdownRemark: { group: categories }
-  } = useStaticQuery(
+    recentlyAllMarkdownRemark: { edges: recentlyBlogs }  } = useStaticQuery(
     graphql`
       query {
         recentlyAllMarkdownRemark: allMarkdownRemark(
@@ -27,18 +25,12 @@ export default () => {
             }
           }
         }
-        categoriesAllMarkdownRemark: allMarkdownRemark {
-          group(field: frontmatter___categories) {
-            category: fieldValue
-            totalCount
-          }
-        }
       }
     `
   )
   return (
     <SideBar>
-        <Button text1="最近の" text2="投稿" to="/" type="secondary"/>
+        <Button text1="最近の" text2="投稿" type="secondary"/>
         <ul>
           {recentlyBlogs.map(
             ({
@@ -54,22 +46,13 @@ export default () => {
             )
           )}
         </ul>
-
-      <Button text1="分類" to="/" type="primary"/>
-        <ul>
-          {categories.map(({ category, totalCount }) => (
-            <List key={category}>
-              <Link to={`category/${category}`}>{category}</Link> ( {totalCount}{" "}
-              )
-            </List>
-          ))}
-        </ul>
     </SideBar>
   )
 }
 
 const SideBar = styled.div`
   width: ${BreakPoints["md"] - BreakPoints["sm"] - 16}px;
+  height: ${BreakPoints.sm/3*2}px;
   margin: 16px 0;
   padding: 8px 0 0 16px;
   font-size: ${Styles.FONT_SIZE.DEFAULT}px;

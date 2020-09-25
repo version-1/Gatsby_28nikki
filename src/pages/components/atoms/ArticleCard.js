@@ -12,15 +12,18 @@ const Card = styled.div`
   text-decoration: none;
   font-weight: 800;
   font-size: ${Styles.FONT_SIZE.MIDDLE}px;
-  width: 250px;
+  width: 240px;
   height: 180px;
   margin: 0px 16px 32px 0px;
   padding: 0;
   position: relative;
   &:hover {
     span {
-      color: ${Styles.COLOR.PRIMARY};
+      color: ${Styles.COLOR.SECONDARY};
     }
+  }
+  ${Responsive("sm")} {
+    width: 100%;
   }
 `;
 
@@ -76,17 +79,12 @@ const CardSeveral = styled(Card)`
     top: 3px;
     right: 3px;
   }
-  &:hover, &:hover::before, &:hover::after  {
-    border: 1px solid ${Styles.COLOR.PRIMARY};
-    border-radius: 4px;
-  }
 
 `;
 
-
  const CardLarge = styled(Card)`
     font-size: ${Styles.FONT_SIZE.HEADER}px;
-    margin: 32px 0;
+    margin: 32px 0 100px 0;
     max-width: ${BreakPoints.sm}px;
     min-width: ${BreakPoints.sm}px;
     height: ${BreakPoints.sm/3*2}px;
@@ -94,6 +92,11 @@ const CardSeveral = styled(Card)`
       max-width: 100%;
       min-width: 100%;
       height: 100%;
+    }
+    &:hover {
+      span {
+        color: ${Styles.COLOR.PRIMARY};
+      }
     }
  `;
 
@@ -151,8 +154,8 @@ const ArticleCardDefault = (props) => {
            objectPosition: 'center top', 
            }}　
            style= {{
-            width: '250px',
-            height: '180px', 
+            width: '100%',
+            height: '100%', 
             boxSizing: 'border-box', 
             border: '1px solid #ccc',
             borderRadius: '4px',
@@ -191,7 +194,7 @@ const ArticleCardSeveral = (props) => {
 }
 
 const ArticleCardLarge = (props) => {
-    const { title, to, avatar, date, text, type} = props;
+    const { title, to, avatar, date, text} = props;
     return (
       <CardLarge>
       <Link to={to}>

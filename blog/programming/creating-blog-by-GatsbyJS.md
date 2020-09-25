@@ -3,7 +3,7 @@ title: "GatsbyJSでブログを作り直している（WordPressから移行）"
 date: "2020-09-15"
 categories: ["プログラミング"]
 tags: ["GatsbyJS", "ブログ作成"]
-avatar: './assets/i_05.png'
+avatar: '../assets/i_05.png'
 ---
 
 ## データが飛んだので、WordPressからGatsbyJSへの移行を決意

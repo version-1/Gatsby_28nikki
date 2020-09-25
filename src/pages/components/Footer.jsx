@@ -4,24 +4,38 @@ import styled from 'styled-components'
 import { Styles, BreakPoints, Responsive } from '../../styles/style'
 
 const Footer = styled.footer`
-  display: block;
   box-sizing: border-box;
-  width: 100%;
-  margin: 0;
+  width: ${BreakPoints.lg}px;
+  ${Responsive("lg")} {
+    width: 100%;
+  }
+  margin: 0 auto;
   padding: 8px 16px;
+  border-top: 1px solid ${Styles.COLOR.LIGHTGLAY};
   color: ${Styles.COLOR.LIGHTGLAY};
+  font-size: ${Styles.FONT_SIZE.SMALL};
+  text-align: center;
+  ul {
+    display: flex;
+    width: 100%;
+    margin: 8px;
+    justify-content: center;
+  }
+  li {
+    margin: 0 16px;
+  }
+  a {
+    color: ${Styles.COLOR.LIGHTGLAY};
+  }
 `;
-
-const SubNav = styled.div`
-  display: flex;
-`
-
 
 export default () => (
   <Footer>
-    <Link to="profile">プロフィール</Link>
-    <Link to="contact">お問い合わせ</Link>
-    <Link to="privacy-policy">プライバシーポリシー</Link>
+    <ul>
+      <li><Link to="profile">プロフィール</Link></li>
+      <li><Link to="contact">お問い合わせ</Link></li>
+      <li><Link to="privacy-policy">プライバシーポリシー</Link></li>
+    </ul>
     <p>Copyright © 2018 ニッパチニッキ All Rights Reserved.</p>
   </Footer>
 )

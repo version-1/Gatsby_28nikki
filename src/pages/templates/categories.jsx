@@ -3,7 +3,6 @@ import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import styled from 'styled-components'
 import { Styles, Responsive, BreakPoints} from '../../styles/style'
-import ArticleList from "../components/molecules/ArticleList"
 import ArticleCard from "../components/atoms/ArticleCard"
 import Button from "../components/atoms/Button"
 import SidePickUp from "../components/atoms/SidePickUp"
@@ -17,21 +16,20 @@ const SideBar = styled.div`
     display: none; 
   }
 `
-
-const List = styled.li`
-  margin: 0 8px 4px;
-`
-
 const Article = styled.div`
   display: flex;
   width: 100%;
-  margin: 0;
+  margin: 16px 0;
   padding: 0;
 `
 
 const HeadArticle = styled.div`
   display: flex;
   margin-bottom: 100px;
+`
+const Card = styled.div`
+  width: 240px;
+  height: 180px;
 `
 
 const Info = styled.div`
@@ -42,7 +40,6 @@ const Info = styled.div`
   height: 70px;
   box-sizing: border-box;
 `;
-
 
 const SubInfo = styled.div`
     font-family: ${Styles.FONT_FAMILY.EN};
@@ -61,21 +58,50 @@ const Description = styled.div`
     }
 `;
 
+const Title = styled.div`
+    display: flex;
+    position: relative;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  `;
 
 export default ({
   data: {
     allMarkdownRemark: { totalCount, edges: blogs },
   },
 }) => {
+  const createRandom = () => {
+    const arr = []
+    const exceptLatest = blogs.slice(1, blogs.length)
+    if (blogs.length < 5) {
+      return blogs
+    }
+    while (arr.length < 5) {
+        var random = Math.floor( Math.random() * (blogs.length - 1) ) ;
+        arr.push(exceptLatest[random])
+    }
+    return arr
+  }
+  const randomList = createRandom()
+  
   return (
+
     <Layout>
       <HeadArticle>
         <ArticleCard type='large' avatar={blogs[0].node.frontmatter.avatar?.childImageSharp.sizes} date={blogs[0].node.frontmatter.date} to={blogs[0].node.fields.slug} originalTitle={blogs[0].node.frontmatter.title} excerpt={blogs[0].node.excerpt}/>
         <SideBar>
-        <Button text1="ピック" text2="アップ" to="/" type="secondary"/>
-          <SidePickUp blogs={blogs} />
+        <Button text1="ピック" text2="アップ" type="secondary"/>
+          <SidePickUp blogs={randomList} />
         </SideBar>
       </HeadArticle>
+      <Title>
+        <Button text1="過去の" text2="記事" type="secondary"/>
+      </Title>
       {blogs.slice(1, blogs.length).map(
         ({
           node: {
@@ -88,7 +114,9 @@ export default ({
         }) => (
         <Link  to={slug} >
             <Article key={id}>
-              <ArticleCard type='default' avatar={avatar?.childImageSharp.sizes} date={date} to={slug} originalTitle={title} excerpt="" />
+              <Card>
+                <ArticleCard type='default' avatar={avatar?.childImageSharp.sizes} date={date} to={slug} originalTitle={title} excerpt="" />
+              </Card>
               <Info>
                 <SubInfo>{date}</SubInfo>
                 <Description>{excerpt}</Description>

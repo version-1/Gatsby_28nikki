@@ -9,7 +9,7 @@ const commonStyle = {
 }
 
 const ButtonOriginal = styled.div`
-  cursor: pointer;
+  cursor: ${props => props.to ? !null : "pointer"};
   width: ${commonStyle.width}px;
   height: ${commonStyle.height}px;
   box-sizing: border-box;
@@ -120,7 +120,7 @@ h1 {
 
 
 const ButtonDefault = (props) => {
-  const { onClick, text1, text2, to, type } = props;
+  const { onClick, text1, text2, to } = props;
   return (
     <Link to={to}>
       <ButtonElementDefault onClick={onClick}>
@@ -171,10 +171,6 @@ const map = {
   secondary: ButtonSecondary,
   title: ButtonHeader,
 };
-
-const ButtonElements = (props) => {
-
-}
 
 const Button = (props) => {
   const { to, text1, text2,  onClick, type } = props;

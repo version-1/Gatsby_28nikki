@@ -1,6 +1,6 @@
 import React from "react"
 import Helmet from "react-helmet"
-import { useStaticQuery, Link, graphql } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
 import styled from 'styled-components'
 import { Styles, Responsive, BreakPoints } from '../../styles/style';
 import Button from "./atoms/Button"
@@ -65,7 +65,6 @@ export default ({ page }) => {
        />
       <HeaderUpper>
         <div>
-          {page === "top" && <div>&nbsp;</div>}
           <Button text1={title} to="/" type="title"/>
         </div>
         <Titlebar>
