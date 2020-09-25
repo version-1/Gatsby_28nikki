@@ -18,6 +18,10 @@ body {
 a {
   text-decoration: none; 
   color: ${Styles.COLOR.DARK};
+  transition: .3s;
+  &:hover {
+      color: ${Styles.COLOR.SECONDARY};
+    }
   }
 ul {
   padding-left: 0;

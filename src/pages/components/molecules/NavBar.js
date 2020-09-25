@@ -1,40 +1,44 @@
 import React from "react"
 import { Link } from "gatsby"
 import styled from 'styled-components'
-import { Styles } from '../../../styles/style';
+import { Styles, Responsive } from '../../../styles/style';
 
 const NavList = styled.ul`
 display: flex;
 width: 100%;
-justify-content: space-around;
+justify-content: flex-end;
 margin: 0;
 padding: 0;
 
 >li {
   transition: .2s;
+  min-width: 100px;
   bottom: -2px;
-  width: 100%;
-  margin: 4px 0;
-  padding: 8px 0;
+  margin: 4px 0 0;
+  padding: 8px 16px;
   box-sizing: border-box;
   text-align: center;
+  font-weight: 600;
+  ${Responsive("sm")} {
+    transition: 0s;
+    min-width: 90px;
+    padding: 8px 4px;
+    font-size: ${Styles.FONT_SIZE.DEFAULT}px;
+  }
 }
 >li >a {
-  color: ${Styles.COLOR.WHITE}
+  color: ${Styles.COLOR.LIGHTGLAY};
+  transition: .3s;
 }
 
 >li:hover {
-    border-radius: ${Styles.BORDER_RADIUS} ${Styles.BORDER_RADIUS} 0 0;
-    color: ${Styles.COLOR.WHITE};
-    border-bottom: 2px solid ${Styles.COLOR.WHITE};
-    background: ${Styles.COLOR.PRIMARY};
+    background: ${Styles.COLOR.WHITE};
+    color: ${Styles.COLOR.PRIMARY};
+    a {
+      color: ${Styles.COLOR.PRIMARY};
+    }
 }
-
 `
-
-// >li:hover >a {
-//     color: ${Styles.COLOR.PRIMARY};
-// }
 
 const NavBar = (props) => {
   return (
@@ -50,12 +54,6 @@ const NavBar = (props) => {
             </li>
             <li>
               <Link to="category/プログラミング/">プログラミング</Link>
-            </li>
-            {/* <li>
-              <Link to="/sample-page/">お問い合わせ</Link>
-            </li> */}
-            <li>
-              <Link to="category/about/">お問い合わせ</Link>
             </li>
       </NavList>
   )

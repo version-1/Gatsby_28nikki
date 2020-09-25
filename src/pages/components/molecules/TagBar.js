@@ -20,6 +20,14 @@ padding: 0;
   border-bottom: 2px solid ${Styles.COLOR.WHITE};
   background: ${Styles.COLOR.WHITE};
   font-size: ${Styles.FONT_SIZE.SMALL}px;
+  transition: .3s;
+}
+
+>li:hover {
+    color: ${Styles.COLOR.SECONDARY};
+    a {
+      color: ${Styles.COLOR.SECONDARY};
+    }
 }
 `
 

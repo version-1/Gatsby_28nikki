@@ -12,6 +12,6 @@ const Flex = styled.div`
 `
 
 const Article = styled.div`
-  width: 860px;
+  max-width: 768px;
   margin: 0 auto;
 `

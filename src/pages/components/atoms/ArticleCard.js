@@ -17,6 +17,11 @@ const Card = styled.div`
   margin: 0px 16px 32px 0px;
   padding: 0;
   position: relative;
+  &:hover {
+    span {
+      color: ${Styles.COLOR.PRIMARY};
+    }
+  }
 `;
 
 const Pict = styled.div`
@@ -26,7 +31,7 @@ const Pict = styled.div`
     box-sizing: border-box;
 `;
 
-const Title = styled.h3`
+const Title = styled.h4`
     width: 70%;
     margin: 4px;
     padding: 4px;
@@ -38,6 +43,7 @@ const Title = styled.h3`
     span {
       background-color: rgba(250,250,250,0.7);
       padding: 2px 1px;
+      transition: .3s;
     }
 `;
 
@@ -47,6 +53,8 @@ const CardSeveral = styled(Card)`
   border-radius: 4px;
   background: ${Styles.COLOR.WHITE};
   margin: 4px 4px 0 4px;
+  transition: .5s;
+
   &::before, &::after {
     position: absolute;
     box-sizing: border-box;
@@ -57,15 +65,22 @@ const CardSeveral = styled(Card)`
     border: 1px solid #ccc;
     border-radius: 4px;
     background: ${Styles.COLOR.WHITE};
+    transition: .5s;
   }
+
   &::before{
-    top: 2px;
-    right: 2px;
+    top: 1px;
+    right: 1.5px;
   }
   &::after {
-    top: 4px;
-    right: 4px;
+    top: 3px;
+    right: 3px;
   }
+  &:hover, &:hover::before, &:hover::after  {
+    border: 1px solid ${Styles.COLOR.PRIMARY};
+    border-radius: 4px;
+  }
+
 `;
 
 

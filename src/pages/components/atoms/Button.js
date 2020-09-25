@@ -88,20 +88,34 @@ const ButtonElementSecondary = styled(ButtonOriginal)`
 
 const ButtonElementHeader = styled(ButtonOriginal)`
   color: ${Styles.COLOR.WHITE};
-  background: ${Styles.COLOR.SECONDARY};
-  border: 2px solid ${Styles.COLOR.WHITE};
+  background: ${Styles.COLOR.PRIMARY};
+  border: 2px solid ${Styles.COLOR.PRIMARY};
   margin-right: 20px;
 `;
 
-const ButtonTextHeader = styled(ButtonText)`
+const ButtonTextHeader = styled.div`
+  cursor: pointer;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    margin: 0;
+    z-index: 3;
+    position: relative;
+    text-align: center;
+    transition: 1s;
 h1 {
   font-size: ${Styles.FONT_SIZE.MIDDLE}px;
   margin: 0;
   padding: 0;
-
 }
-&::before, &::after {
-  background: ${Styles.COLOR.SECONDARY};}
+&:hover {
+  background: ${Styles.COLOR.WHITE};
+  color: ${Styles.COLOR.PRIMARY};
+}
+
  `;
 
 
