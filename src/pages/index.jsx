@@ -48,9 +48,6 @@ export default ({
       <ArticleCard type='large' avatar={blogs[0].node.frontmatter.avatar?.childImageSharp.sizes} date={blogs[0].node.frontmatter.date} to={blogs[0].node.fields.slug} originalTitle={blogs[0].node.frontmatter.title} excerpt={blogs[0].node.excerpt}/>
       <Sidebar/>
     </HeadArticle>
-    {group.map((a, b) => (
-        console.log(categoryMap[a.category].weight)
-      ))}
     {group.filter(({category}) => Object.keys(map).indexOf(category) !== -1).map(
       ({
         category
