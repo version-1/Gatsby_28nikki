@@ -7,7 +7,7 @@ export const categoryMap = {
     },
   "study-abroad" : {
       url: "study-abroad",
-      name: "英語学習",
+      name: "カナダ留学",
       group: "englishBlogs",
       weight: 20,
     } ,

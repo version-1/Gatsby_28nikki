@@ -31,21 +31,6 @@ padding: 0;
 }
 `
 
-// >li >a {
-//   color: ${Styles.COLOR.WHITE}
-// }
-
-// >li:hover {
-//     border-radius: ${Styles.BORDER_RADIUS} ${Styles.BORDER_RADIUS} 0 0;
-//     color: ${Styles.COLOR.WHITE};
-//     border-bottom: 2px solid ${Styles.COLOR.WHITE};
-//     background: ${Styles.COLOR.PRIMARY};
-// }
-
-// >li:hover >a {
-//     color: ${Styles.COLOR.PRIMARY};
-// }
-
 const TagBar = (props) => {
   const {
     tagsAllMarkdownRemark: { group: tags },

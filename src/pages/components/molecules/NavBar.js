@@ -48,7 +48,7 @@ const NavBar = (props) => {
   return (
       <NavList>
             <li>
-  <Link to="category/study-abroad/">{categoryMap["study-abroad"].name}</Link>
+              <Link to="category/study-abroad/">{categoryMap["study-abroad"].name}</Link>
             </li>
             <li>
               <Link to="category/english/">{categoryMap["english"].name}</Link>

@@ -24,6 +24,7 @@ export const Responsive = (point) => {
 }
 
 export const Styles = {
+    HEADER_FONT_SIZE: { H3: 28, H4: 24, H5: 20, H6: 16},
     FONT_SIZE: { SMALL: 12, DEFAULT: 14, MIDDLE: 16, LARGE: 21, HEADER: 28 },
     FONT_FAMILY: { EN: "'Lato', sans-serif", JP_SAWARABI: "Sawarabi Gothic", JP_NOTO: "Noto Sans JP"},
     COLOR: { DARK: '#343b33',  SECONDARY: '#2c5780', LIGHTGLAY: '#737b7d', WHITE: '#f5f7f5', PRIMARY: '#c43641',},

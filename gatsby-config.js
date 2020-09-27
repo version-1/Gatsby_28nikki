@@ -13,29 +13,28 @@ module.exports = {
     description: "アラサー女性のカナダ社会人留学記録"
   },
   plugins: [
-    // "gatsby-transformer-remark",
     "gatsby-plugin-react-helmet",
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, 
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
+        name: `blog`,
         path: `${__dirname}/blog`,
-        name: "blog",
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: "images",
+        name: `images`,
         path: path.join(__dirname, `blog`, `assets`)
       },
     },
     {
-      resolve: "gatsby-source-filesystem",
+      resolve: `gatsby-source-filesystem`,
       options: {
-        name: "image",
+        name: `image`,
         path: path.join(__dirname, `src`, `images`)
       },
     },
@@ -54,8 +53,14 @@ module.exports = {
               linkImagesToOriginal: true,
             },
           },
+          {
+            resolve: "gatsby-remark-component",
+            //変換する要素を指定したいときはoptionに記載する
+            // options: { components: ["my-component", "other-component"] }
+          },
         ],
       },
     },
+    
   ],
 }

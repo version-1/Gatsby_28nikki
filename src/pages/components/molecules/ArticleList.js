@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import ArticleCard from "../atoms/ArticleCard"
 import Button from "../atoms/Button"
 import {categoryMap} from "../../../styles/maps"
+import { Responsive } from '../../../styles/style'
 
 const Articles = styled.div`
   display: flex;
@@ -11,6 +12,13 @@ const Articles = styled.div`
   justify-content: space-between;
   width: 100%;
   margin-bottom: 30px;
+  ${Responsive("md")} {
+    justify-content: center;
+  }
+  ${Responsive("sm")} {
+    justify-content: space-between;
+  }
+
 `;
 
 const Title = styled.div`

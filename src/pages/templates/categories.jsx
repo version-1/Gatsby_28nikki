@@ -6,6 +6,7 @@ import { Styles, Responsive, BreakPoints} from '../../styles/style'
 import ArticleCard from "../components/atoms/ArticleCard"
 import Button from "../components/atoms/Button"
 import SidePickUp from "../components/atoms/SidePickUp"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SideBar = styled.div`
   width: ${BreakPoints["md"] - BreakPoints["sm"] - 16}px;
@@ -118,8 +119,8 @@ export default ({
                 <ArticleCard type='default' avatar={avatar?.childImageSharp.sizes} date={date} to={slug} originalTitle={title} excerpt="" />
               </Card>
               <Info>
-                <SubInfo>{date}</SubInfo>
-                <Description>{excerpt}</Description>
+                <SubInfo><FontAwesomeIcon icon={['far', 'clock']} /> {date}</SubInfo>
+                <Description>{excerpt}<br /><br /> &gt;&gt;続きはこちら</Description>
               </Info>
           </Article>
         </Link>

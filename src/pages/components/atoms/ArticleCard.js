@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import Img from "gatsby-image"
 import styled from 'styled-components'
 import { Styles, BreakPoints, Responsive } from '../../../styles/style'
-
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const Card = styled.div`
   display: block;
@@ -22,8 +22,9 @@ const Card = styled.div`
       color: ${Styles.COLOR.SECONDARY};
     }
   }
-  ${Responsive("sm")} {
-    width: 100%;
+
+  ${Responsive("md")} {
+    margin: 0px 0px 32px 0px;
   }
 `;
 
@@ -35,7 +36,7 @@ const Pict = styled.div`
 `;
 
 const Title = styled.h4`
-    width: 70%;
+    width: 75%;
     margin: 4px;
     padding: 4px;
     font-size: 0.8em;
@@ -44,9 +45,10 @@ const Title = styled.h4`
     left: 4px;
     z-index: 5;
     span {
-      background-color: rgba(250,250,250,0.7);
+      background-color: rgba(250,250,250,0.8);
       padding: 2px 1px;
       transition: .3s;
+
     }
 `;
 
@@ -55,7 +57,7 @@ const CardSeveral = styled(Card)`
   border: 1px solid #ccc;
   border-radius: 4px;
   background: ${Styles.COLOR.WHITE};
-  margin: 4px 4px 0 4px;
+  margin: 0px 16px 32px 0px;
   transition: .5s;
 
   &::before, &::after {
@@ -78,6 +80,11 @@ const CardSeveral = styled(Card)`
   &::after {
     top: 3px;
     right: 3px;
+  }
+
+    
+  ${Responsive("md")} {
+    margin: 0px 0px 32px 4px;
   }
 
 `;
@@ -125,7 +132,8 @@ const SubInfo = styled.div`
     font-family: ${Styles.FONT_FAMILY.EN};
     font-size: ${Styles.FONT_SIZE.SMALL}px;
     color: ${Styles.COLOR.LIGHTGLAY};
-    margin-right: 20px;
+    margin-right: 16px;
+    width: 130px;
 `;
 
 const Description = styled.div`
@@ -151,7 +159,7 @@ const ArticleCardDefault = (props) => {
            width: '100%',
            height: '100%', 
            objectFit: 'cover', 
-           objectPosition: 'center top', 
+           objectPosition: 'center', 
            }}　
            style= {{
             width: '100%',
@@ -217,7 +225,7 @@ const ArticleCardLarge = (props) => {
         </PictLarge>
         </Link>
         <Info>
-            <SubInfo>{date}</SubInfo>
+            <SubInfo><FontAwesomeIcon icon={['far', 'clock']} /> {date}</SubInfo>
             <Description>{text}</Description>
         </Info>
     </CardLarge>
@@ -236,7 +244,7 @@ const map = {
 const ArticleCard = (props) => {
   const { originalTitle, to, avatar, date, excerpt, type} = props;
   const component = map[type] || map.default; 
-  const title = originalTitle.length > 30 ? originalTitle.slice(0, 30) : originalTitle;
+  const title = originalTitle;
   const text = excerpt.length > 140 ? excerpt.slice(0, 30) : excerpt;
   return React.createElement(component, { title, to, avatar, date, text, type} )
 };

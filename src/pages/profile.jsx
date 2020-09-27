@@ -2,24 +2,12 @@ import React from "react"
 import Layout from "./components/Layout"
 import Image from "./components/image"
 import styled from 'styled-components'
-import { Styles, BreakPoints, Responsive } from '../styles/style'
 
 const Pict = styled.div`
   width: 200px;
   border: 1px solid #ccc;
   border-radius: 4px;
 `
-
-const Category = styled.h2`
-  border: 1px solid ${Styles.COLOR.SECONDARY};
-  color: ${Styles.COLOR.WHITE};
-  background: ${Styles.COLOR.SECONDARY};
-  font-size: ${Styles.FONT_SIZE.SMALL}px;
-  border-radius: 4px;
-  padding: 4px 8px;
-  margin: 4px 0px;
-`;
-
 
 export default () => (
   <Layout>

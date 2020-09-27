@@ -14,13 +14,13 @@ padding: 0;
   transition: .2s;
   bottom: -2px;
   width: 100%;
-  margin: 4px 0;
+  margin: 8px 0;
   padding: 8px 0;
   box-sizing: border-box;
   text-align: center;
 }
 >li >a {
-  color: ${Styles.COLOR.WHITE}
+  color: ${Styles.COLOR.WHITE};
 }
 
 >li:hover {

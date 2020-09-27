@@ -5,6 +5,12 @@ import Sidebar from "./Sidebar"
 import Footer from "./Footer"
 import { createGlobalStyle } from "styled-components"
 import { Styles } from '../../styles/style'
+import { library } from '@fortawesome/fontawesome-svg-core'; //fontawesomeのコアファイル
+import { fab } from '@fortawesome/free-brands-svg-icons'; //fontawesomeのbrandアイコンのインポート
+import { fas } from '@fortawesome/free-solid-svg-icons'; //fontawesomeのsolidアイコンのインポート
+import { far } from '@fortawesome/free-regular-svg-icons'; //fontawesomeのregularアイコンのインポート
+
+library.add(fab, fas, far);
 
 const GlobalStyle = createGlobalStyle`
 body {
@@ -25,16 +31,14 @@ a {
   }
 ul {
   padding-left: 0;
+  list-style: none;
 }
 
 li {
   display: block;
-  text-decoration: none; }
+  text-decoration: none;
+ }
 
-l {
-  list-style: none; 
-
-}
 
 .l-flex {
   display: flex; }
