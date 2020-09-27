@@ -13,7 +13,7 @@ const Footer = styled.footer`
   padding: 8px 16px;
   border-top: 1px solid ${Styles.COLOR.LIGHTGLAY};
   color: ${Styles.COLOR.LIGHTGLAY};
-  font-size: ${Styles.FONT_SIZE.SMALL};
+  font-size: ${Styles.FONT_SIZE.SMALL} px;
   text-align: center;
   ul {
     display: flex;
@@ -29,13 +29,18 @@ const Footer = styled.footer`
   }
 `;
 
+const Copy = styled.p`
+  font-size: ${Styles.FONT_SIZE.DEFAULT}px;
+`
+
 export default () => (
   <Footer>
     <ul>
       <li><Link to="profile">プロフィール</Link></li>
-      <li><Link to="contact">お問い合わせ</Link></li>
+      {/* <li><Link to="contact">お問い合わせ</Link></li> */}
+      <li>お問い合わせ</li>
       <li><Link to="privacy-policy">プライバシーポリシー</Link></li>
     </ul>
-    <p>Copyright © 2018 ニッパチニッキ All Rights Reserved.</p>
+    <Copy>Copyright © 2018 ニッパチニッキ All Rights Reserved.</Copy>
   </Footer>
 )
