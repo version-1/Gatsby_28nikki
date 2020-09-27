@@ -5,7 +5,6 @@ import Layout from "./components/Layout"
 import ArticleCard from "./components/atoms/ArticleCard"
 import ArticleList from "./components/molecules/ArticleList"
 import Sidebar from "./components/Sidebar"
-import {categoryMap} from "../styles/maps"
 
 const HeadArticle = styled.div`
   display: flex;

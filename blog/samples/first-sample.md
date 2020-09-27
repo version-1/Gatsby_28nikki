@@ -1,12 +1,12 @@
 ---
-title: "留学1"
-date: "2020-06-03"
-categories: ["programming"]
+title: "留学3"
+date: "2020-06-05"
+categories: ["studyAbroad"]
 tags: ["tag1", "tag2","tag3","tag4","tag5","tag6","tag7","tag8","tag9"]
-avatar: './assets/i_05.png'
+avatar: '../assets/i_05.png'
 ---
 
-書いたよ〜〜〜〜2
+書いたよ〜〜〜〜
 
 これどう表示されるんかな
 

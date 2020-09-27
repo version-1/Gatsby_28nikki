@@ -1,9 +1,9 @@
 ---
-title: "レシピ1"
+title: "留学"
 date: "2020-06-05"
-categories: ["recipe"]
+categories: ["health"]
 tags: ["tag1", "tag2","tag9","tag10"]
-avatar: './assets/10351507_p0.jpg'
+avatar: '../assets/sample.jpg'
 ---
 ![Alt text here](./assets/sample.jpg)
 
