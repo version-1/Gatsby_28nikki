@@ -23,15 +23,9 @@ const Footer = styled.footer`
     justify-content: center;
   }
   li {
-    margin: 0 16px;
-  }
-  a {
-    color: ${Styles.COLOR.LIGHTGLAY};
-    &:hover {
-      color: ${Styles.COLOR.SECONDARY};
+    margin: 0 8px;
     }
-  }
-  
+  }  
 `;
 
 const Upper = styled.div`
@@ -43,7 +37,6 @@ const Upper = styled.div`
 const ToTop = styled.a`
   font-size: ${Styles.FONT_SIZE.DEFAULT}px;
 `
-
 
 const Copy = styled.p`
   font-size: ${Styles.FONT_SIZE.DEFAULT}px;

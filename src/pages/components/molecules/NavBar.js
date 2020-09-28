@@ -14,7 +14,7 @@ padding: 0;
     flex-wrap: wrap;
   }
 
->li {
+li {
   transition: .2s;
   min-width: 100px;
   bottom: -2px;
@@ -23,6 +23,12 @@ padding: 0;
   box-sizing: border-box;
   text-align: center;
   font-weight: 600;
+  color: ${Styles.COLOR.LIGHTGLAY};
+  transition: .3s;
+  a {
+    color: ${Styles.COLOR.LIGHTGLAY};
+    transition: .3s;
+  }
   ${Responsive("sm")} {
     transition: 0s;
     min-width: 90px;
@@ -30,12 +36,8 @@ padding: 0;
     font-size: ${Styles.FONT_SIZE.DEFAULT}px;
   }
 }
->li >a {
-  color: ${Styles.COLOR.LIGHTGLAY};
-  transition: .3s;
-}
 
->li:hover {
+li:hover {
     background: ${Styles.COLOR.WHITE};
     color: ${Styles.COLOR.PRIMARY};
     a {
@@ -56,9 +58,10 @@ const NavBar = (props) => {
             <li>
               <Link to="category/recipe/">{categoryMap["recipe"].name}</Link>
             </li>
-            <li>
-              <Link to="category/programming/">{categoryMap["programming"].name}</Link>
-            </li>
+            <Link to="category/programming/">            
+              <li>{categoryMap["programming"].name}</li>
+            </Link>
+
             <li>
               <Link to="category/health/">{categoryMap["health"].name}</Link>
             </li>

@@ -4,7 +4,8 @@ import styled from 'styled-components'
 import Layout from "./components/Layout"
 import ArticleCard from "./components/atoms/ArticleCard"
 import ArticleList from "./components/molecules/ArticleList"
-import Sidebar from "./components/Sidebar"
+import SideBlogList from "./components/atoms/SideBlogList"
+import Pankuzu from "./components/atoms/Pankuzu"
 
 const HeadArticle = styled.div`
   display: flex;
@@ -20,6 +21,7 @@ export default ({
     programmingArticlesAll: {edges: programmingBlogs},
     healthArticlesAll: {edges: healthBlogs},
     othersArticlesAll: {edges: othersBlogs},
+    recentlyAllMarkdownRemark: { edges: recentlyBlogs },
   }
 }) => {
 
@@ -43,9 +45,10 @@ export default ({
 
   return (
   <Layout page={"top"}>
+    <Pankuzu />
     <HeadArticle>
       <ArticleCard type='large' avatar={blogs[0].node.frontmatter.avatar?.childImageSharp.sizes} date={blogs[0].node.frontmatter.date} to={blogs[0].node.fields.slug} originalTitle={blogs[0].node.frontmatter.title} excerpt={blogs[0].node.excerpt}/>
-      <Sidebar/>
+      <SideBlogList blogs={recentlyBlogs} text1="最近の" text2="投稿" />
     </HeadArticle>
     {group.filter(({category}) => Object.keys(map).indexOf(category) !== -1).map(
       ({
@@ -64,6 +67,23 @@ export const query = graphql`
       group(field: frontmatter___categories) {
         category: fieldValue
         totalCount
+      }
+    }
+
+    recentlyAllMarkdownRemark: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], order: DESC }
+      limit: 5
+    ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+          }
+          fields {
+            slug
+          }
+        }
       }
     }
     latest: allMarkdownRemark(

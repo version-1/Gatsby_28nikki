@@ -1,7 +1,6 @@
 import React from "react"
 import Header from "./Header"
 import Main from "./Main"
-import Sidebar from "./Sidebar"
 import Footer from "./Footer"
 import { createGlobalStyle } from "styled-components"
 import { Styles } from '../../styles/style'
@@ -18,7 +17,7 @@ body {
   color: ${Styles.COLOR.DARK};
   font-family: ${Styles.FONT_FAMILY.JP_SAWARABI};
   margin: 0;
-  padding: 0px; 
+  padding: 0 8px; 
 }
 
 a {
@@ -49,7 +48,7 @@ export default ({ page = "default", children }) => (
     <React.Fragment>
       <GlobalStyle theme="purple" />
       <Header page={page} />
-      <Main sidebar={<Sidebar />}>{children}</Main>
+      <Main>{children}</Main>
       <Footer />
     </React.Fragment>
   )

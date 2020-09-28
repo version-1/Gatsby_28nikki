@@ -11,7 +11,6 @@ margin: 0;
 padding: 0;
 
 >li {
-  transition: .2s;
   width: 100%;
   margin:0;
   padding: 8px 0;
@@ -20,13 +19,17 @@ padding: 0;
   border-bottom: 2px solid ${Styles.COLOR.WHITE};
   background: ${Styles.COLOR.WHITE};
   font-size: ${Styles.FONT_SIZE.SMALL}px;
-  transition: .3s;
+  a {
+    border-radius: 4px;
+    padding: 2px 3px;
+  }
 }
 
 >li:hover {
-    color: ${Styles.COLOR.SECONDARY};
+    color: ${Styles.COLOR.WHITE};
     a {
-      color: ${Styles.COLOR.SECONDARY};
+      color: ${Styles.COLOR.WHITE};
+      background: ${Styles.COLOR.SECONDARY};
     }
 }
 `

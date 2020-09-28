@@ -2,21 +2,13 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
 import styled from 'styled-components'
-import { Styles, Responsive, BreakPoints} from '../../styles/style'
+import { Styles, Responsive } from '../../styles/style'
 import ArticleCard from "../components/atoms/ArticleCard"
 import Button from "../components/atoms/Button"
-import SidePickUp from "../components/atoms/SidePickUp"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import SideBlogList from "../components/atoms/SideBlogList"
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import  Pankuzu from '../components/atoms/Pankuzu'
 
-const SideBar = styled.div`
-  width: ${BreakPoints["md"] - BreakPoints["sm"] - 16}px;
-  margin: 16px 0;
-  padding: 8px 0 0 16px;
-  font-size: ${Styles.FONT_SIZE.DEFAULT}px;
-  ${Responsive("md")} {
-    display: none; 
-  }
-`
 const Article = styled.div`
   display: flex;
   width: 100%;
@@ -76,8 +68,9 @@ export default ({
     allMarkdownRemark: { totalCount, edges: blogs },
   },
 }) => {
+
   const createRandom = () => {
-    const arr = []
+    let arr = []
     const exceptLatest = blogs.slice(1, blogs.length)
     if (blogs.length < 5) {
       return blogs
@@ -88,17 +81,16 @@ export default ({
     }
     return arr
   }
+
   const randomList = createRandom()
+ 
   
   return (
-
     <Layout>
+      <Pankuzu middle={blogs[0].node.frontmatter.categories[0]} />
       <HeadArticle>
         <ArticleCard type='large' avatar={blogs[0].node.frontmatter.avatar?.childImageSharp.sizes} date={blogs[0].node.frontmatter.date} to={blogs[0].node.fields.slug} originalTitle={blogs[0].node.frontmatter.title} excerpt={blogs[0].node.excerpt}/>
-        <SideBar>
-        <Button text1="ピック" text2="アップ" type="secondary"/>
-          <SidePickUp blogs={randomList} />
-        </SideBar>
+          <SideBlogList blogs={randomList} text1="ピック" text2="アップ" />
       </HeadArticle>
       <Title>
         <Button text1="過去の" text2="記事" type="secondary"/>
@@ -142,6 +134,7 @@ export const pageQuery = graphql`
         node {
           id
           frontmatter {
+            categories
             title
             date(formatString: "YYYY/MM/DD")
             avatar {

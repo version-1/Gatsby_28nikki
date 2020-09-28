@@ -5,7 +5,9 @@ import Img from "gatsby-image"
 import {categoryMap} from "../../styles/maps"
 import styled from 'styled-components'
 import { Styles, BreakPoints, Responsive } from '../../styles/style'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { BlogArticleStyles } from '../../styles/BlogArticleStyles'
+import Pankuzu from '../components/atoms/Pankuzu'
 
 const Article = styled.div`
   box-sizing: border-box;
@@ -20,13 +22,20 @@ const Article = styled.div`
 `;
 
 const Category = styled.span`
-  border: 1px solid ${Styles.COLOR.SECONDARY};
+  display: inline-block;  
+  border: 1px solid ${Styles.COLOR.PRIMARY};
   color: ${Styles.COLOR.WHITE};
-  background: ${Styles.COLOR.SECONDARY};
+  background: ${Styles.COLOR.PRIMARY};
   font-size: ${Styles.FONT_SIZE.SMALL}px;
   border-radius: 4px;
-  padding: 4px 8px;
-  margin: 4px 0px;
+  padding: 1px 3px;
+  margin: 4px 16px 4px 0;
+  transition: .2s;
+  &:hover {
+    background: ${Styles.COLOR.WHITE};
+    color: ${Styles.COLOR.PRIMARY};
+    
+  }
 `;
 
 const Date = styled.div`
@@ -37,7 +46,7 @@ const Date = styled.div`
   margin: 4px 0px;
 `;
 
-const Tags = styled.span`
+const Tags = styled.div`
   display: flex;
   flex-wrap: wrap;
   margin-bottom: 16px;
@@ -51,6 +60,7 @@ const Tag = styled.span`
   border-radius: 4px;
   padding: 1px 3px;
   margin: 4px 16px 4px 0;
+  transition: .2s;
   &:hover {
     background: ${Styles.COLOR.SECONDARY};
     color: ${Styles.COLOR.WHITE};
@@ -68,49 +78,7 @@ const Pict = styled.div`
 `
 
 
-const Content = styled.div`
-  border-bottom: 1px solid ${Styles.COLOR.LIGHTGLAY};
-  margin-bottom: 16px;
-  h1, h2, h3, h4, h5, h6 {
-    border-top: 2px solid ${Styles.COLOR.PRIMARY};
-    color: ${Styles.COLOR.PRIMARY};
-    padding: 4px 2px 0;
-    margin: 32px 0 0;
-  }
-  h3 {
-    font-size: ${Styles.HEADER_FONT_SIZE.H3}px ;
-  }
-  h4 {
-    font-size: ${Styles.HEADER_FONT_SIZE.H4}px ;
-  }
-  h5 {
-    font-size: ${Styles.HEADER_FONT_SIZE.H5}px ;
-  }
-  h6 {
-    font-size: ${Styles.HEADER_FONT_SIZE.H6}px ;
-  }
-  table {
-    border-collapse: collapse;
-    padding: 0;
-  
-  }
-  th, td {
-    border: 1px solid #ccc;
-    padding: 4px 8px;
-    margin: 0;
-  }
-  th {
-    background: ${Styles.COLOR.LIGHTGLAY};
-    color: ${Styles.COLOR.WHITE};
-  }
 
-  ul li {
-    display: list-item;
-    list-style-type: disc;
-    list-style-position: outside;
-    margin-left: 24px;
-  }
-`
 
 
 export default ({
@@ -118,16 +86,15 @@ export default ({
     markdownRemark: {
       html,
       frontmatter: { title, categories, tags, avatar, date },
+      fields: { slug },
     },
   },
 }) => {
   return (
     <Layout>
+      <Pankuzu middle={categories[0]} article={{name: title, to: slug}} />
       <Article>
-      {categories.map((category) => (
-        <Link to={`category/${categoryMap[category].url}/`}><Category>{categoryMap[category].name}</Category></Link>))} 
       <h2>{title}</h2>
-
       <Pict><Img fluid={avatar.childImageSharp.fluid} alt={title & date}
             imgStyle= {{
               width: '100%',
@@ -143,9 +110,13 @@ export default ({
            }}/>
         </Pict>
       <Date><FontAwesomeIcon icon={['far', 'clock']} /> {date} モトキ</Date>
-      <Content dangerouslySetInnerHTML={{ __html: html }} />
+      <BlogArticleStyles dangerouslySetInnerHTML={{ __html: html }} />
+  
       <Tags>
-        {tags.map((tag) => (<Link to={`tag/${tag}`}><Tag>{tag}</Tag></Link>))} 
+      {categories.map((category) => (
+        <Link to={`category/${categoryMap[category].url}/`}><Category>{categoryMap[category].name}</Category></Link>
+        ))} 
+        {tags.map((tag) => (<Link to={`tag/${tag}`}><Tag>#{tag}</Tag></Link>))} 
       </Tags>
 
       </Article>
@@ -169,6 +140,9 @@ export const query = graphql`
           }
         }
         date(formatString: "YYYY/MM/DD")
+      }
+      fields {
+        slug
       }
     }
   }

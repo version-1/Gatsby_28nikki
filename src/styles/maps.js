@@ -1,36 +1,36 @@
 export const categoryMap = {
   "programming": {
-      url: "programming",
+      url: "category/programming/",
       name: "プログラミング",
       group: "programmingBlogs",
       weight: 10,
     },
   "study-abroad" : {
-      url: "study-abroad",
+      url: "category/study-abroad/",
       name: "カナダ留学",
       group: "englishBlogs",
       weight: 20,
     } ,
   "english" : {
-      url: "english",
+      url: "category/english/",
       name: "英語学習",
       group: "englishBlogs",
       weight: 30,
     } ,
   "recipe": {
-      url: "recipe",
+      url: "category/recipe/",
       name: "レシピ",
       group: "recipeBlogs",
       weight: 40,
     },
   "health": {
-      url: "health",
+      url: "category/health/",
       name: "健康管理",
       group: "healthBlogs",
       weight: 50,
     },
   "others":{ 
-      url: "others",
+      url: "category/others/",
       name: "その他",
       group: "otherBlogs",
       weight: 99999,

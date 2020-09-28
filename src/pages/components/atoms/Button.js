@@ -147,7 +147,7 @@ const ButtonSecondary = (props) => {
   return (
     <Link to={to}>
       <ButtonElementSecondary onClick={onClick}>
-       <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
+        <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
       </ButtonElementSecondary>
     </Link>
   )
