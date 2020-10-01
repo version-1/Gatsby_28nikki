@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Styles, BreakPoints, Responsive } from './style'
+import { Styles } from './style'
 
 
 export const BlogArticleStyles = styled.div`

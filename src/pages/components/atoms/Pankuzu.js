@@ -29,7 +29,7 @@ const Pankuzu = (props) => {
             </Item>
             {middle ?
                 <Item>
-                      &gt; <Link to={categoryMap[middle]? categoryMap[middle].url : `tag/${middle}/`}>{categoryMap[middle]? categoryMap[middle].name : encodeURL(middle)}</Link>
+                      &gt; <Link to={categoryMap[middle]? categoryMap[middle].url :middle}>{categoryMap[middle]? categoryMap[middle].name : decodeURI(middle).slice(5)}</Link>
                 </Item> : ""
             }
             {article ? 

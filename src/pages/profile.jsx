@@ -3,7 +3,7 @@ import Layout from "./components/Layout"
 import Image from "./components/image"
 import styled from 'styled-components'
 import Pankuzu from "./components/atoms/Pankuzu"
-import { Styles, BreakPoints, Responsive } from '../styles/style'
+import { BreakPoints, Responsive } from '../styles/style'
 
 const Pict = styled.div`
   width: 200px;
