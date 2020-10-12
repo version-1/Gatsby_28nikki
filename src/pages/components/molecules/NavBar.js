@@ -2,7 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 import styled from 'styled-components'
 import { Styles, Responsive } from '../../../styles/style';
-import {categoryMap} from '../../../styles/maps';
+import { categoryMap } from '../../../styles/maps';
 
 const NavList = styled.ul`
 display: flex;
@@ -49,25 +49,11 @@ li:hover {
 const NavBar = (props) => {
   return (
       <NavList>
-            <li>
-              <Link to="category/study-abroad/">{categoryMap["study-abroad"].name}</Link>
-            </li>
-            <li>
-              <Link to="category/english/">{categoryMap["english"].name}</Link>
-            </li>
-            <li>
-              <Link to="category/recipe/">{categoryMap["recipe"].name}</Link>
-            </li>
-            <Link to="category/programming/">            
-              <li>{categoryMap["programming"].name}</li>
-            </Link>
-
-            <li>
-              <Link to="category/health/">{categoryMap["health"].name}</Link>
-            </li>
-            <li>
-              <Link to="category/others/">{categoryMap["others"].name}</Link>
-            </li>
+        {Object.keys(categoryMap).map(
+              (key) => {
+                return <li><Link to={categoryMap[key].url}>{categoryMap[key].name}</Link></li>
+              }
+            )}
       </NavList>
   )
 };

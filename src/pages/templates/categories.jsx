@@ -67,8 +67,8 @@ export default ({
   data: {
     allMarkdownRemark: { totalCount, edges: blogs },
   },
+  
 }) => {
-
   const createRandom = () => {
     let arr = []
     const exceptLatest = blogs.slice(1, blogs.length)

@@ -21,15 +21,30 @@ const Item = styled.li`
   }
 `
 const Pankuzu = (props) => {
-    const { middle, article } = props;
+    const { type, middle, article } = props;
+
+    const createPath = (type) => {
+        let middlePath = middle
+        if (type !== "tag") {
+            middlePath = categoryMap[middle].url
+        }
+        return middlePath
+    }
+    const createName = (type) => {
+        let middleName = decodeURI(middle).slice(5)
+        if (type !== "tag") {
+            middleName = categoryMap[middle].name
+        }
+        return middleName
+    }
     return (
-        <PankuzuList>
+            <PankuzuList>
             <Item>
                 <Link to=""><FontAwesomeIcon icon={['fas', 'map-marker-alt']} /> TOP</Link>
             </Item>
             {middle ?
                 <Item>
-                      &gt; <Link to={categoryMap[middle]? categoryMap[middle].url :middle}>{categoryMap[middle]? categoryMap[middle].name : decodeURI(middle).slice(5)}</Link>
+                      &gt; <Link to={createPath(type)}>{createName(type)}</Link>
                 </Item> : ""
             }
             {article ? 

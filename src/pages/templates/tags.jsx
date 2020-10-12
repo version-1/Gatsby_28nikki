@@ -54,12 +54,11 @@ const Description = styled.div`
 
 export default ({
   data: {
-    tag,
     allMarkdownRemark: { totalCount, edges: blogs },
   },
   location
 }) => {
-
+  console.log(blogs)
     const createRandom = () => {
       const arr = []
       const exceptLatest = blogs.slice(1, blogs.length)
@@ -76,7 +75,7 @@ export default ({
   
   return (
     <Layout>
-      <Pankuzu middle={location.pathname} />
+      <Pankuzu middle={location.pathname} type="tag"/>
       <HeadArticle>
         <ArticleCard type='large' avatar={blogs[0].node.frontmatter.avatar?.childImageSharp.sizes} date={blogs[0].node.frontmatter.date} to={blogs[0].node.fields.slug} originalTitle={blogs[0].node.frontmatter.title} excerpt={blogs[0].node.excerpt}/>
           <SideBlogList blogs={randomList} text1="ピック" text2="アップ" />

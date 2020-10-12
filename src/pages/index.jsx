@@ -6,6 +6,7 @@ import ArticleCard from "./components/atoms/ArticleCard"
 import ArticleList from "./components/molecules/ArticleList"
 import SideBlogList from "./components/atoms/SideBlogList"
 import Pankuzu from "./components/atoms/Pankuzu"
+import { categoryMap } from "../styles/maps"
 
 const HeadArticle = styled.div`
   display: flex;
@@ -34,15 +35,6 @@ export default ({
     "others" : othersBlogs
     }
 
-    // const map = {
-    // "英語学習" : englishBlogs,
-    // "留学" : studyAbroadBlogs,
-    // "レシピ" : recipeBlogs,
-    // "プログラミング" : programmingBlogs, 
-    // "健康管理" : healthBlogs,
-    // "その他" : othersBlogs
-    // }
-
   return (
   <Layout page={"top"}>
     <Pankuzu />
@@ -50,12 +42,13 @@ export default ({
       <ArticleCard type='large' avatar={blogs[0].node.frontmatter.avatar?.childImageSharp.sizes} date={blogs[0].node.frontmatter.date} to={blogs[0].node.fields.slug} originalTitle={blogs[0].node.frontmatter.title} excerpt={blogs[0].node.excerpt}/>
       <SideBlogList blogs={recentlyBlogs} text1="最近の" text2="投稿" />
     </HeadArticle>
-    {group.filter(({category}) => Object.keys(map).indexOf(category) !== -1).map(
-      ({
-        category
-      }) => (
-        <ArticleList blogs={map[category]} category={category}/>
-        )
+    {Object.keys(map).map(
+      (key) => {
+        if (!map[key] || map[key].length === 0) {
+          return null
+        }
+        return <ArticleList blogs={map[key]} category={key}/>
+      }
     )}
   </Layout>
 )
@@ -211,7 +204,7 @@ export const query = graphql`
       sort: { fields: [frontmatter___date], 
       order: DESC}
       filter: { frontmatter: { categories: { in: ["programming"] } } }
-          limit: 10
+          limit: 5
       ) {
       edges {
         node {
@@ -242,7 +235,7 @@ export const query = graphql`
       sort: { fields: [frontmatter___date], 
       order: DESC}
       filter: { frontmatter: { categories: { in: ["health"] } } }
-          limit: 10
+          limit: 5
       ) {
       edges {
         node {
@@ -273,7 +266,7 @@ export const query = graphql`
       sort: { fields: [frontmatter___date], 
       order: DESC}
       filter: { frontmatter: { categories: { in: ["others"] } } }
-          limit: 10
+          limit: 5
       ) {
       edges {
         node {
