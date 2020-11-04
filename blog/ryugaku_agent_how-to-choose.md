@@ -1,8 +1,8 @@
 ---
 title: "【留学エージェントの選び方】損しないための３つのポイント"
 date: "2018-11-18"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: [ "留学準備", "長期留学", "語学留学", "留学", "留学エージェント"]
 avatar: "./assets/"
 ---
 

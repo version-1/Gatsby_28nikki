@@ -1,8 +1,8 @@
 ---
 title: "瞬間英作文は3ヶ月で効果が出る？オススメの教材とやり方もご紹介"
 date: "2019-10-16"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["english"]
+tags: ["英語", "スピーキング", "勉強法", "瞬間英作文", "英語学習", ]
 avatar: "./assets/qrkjwe6yfjo.jpg"
 ---
 

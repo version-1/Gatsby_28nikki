@@ -1,8 +1,8 @@
 ---
 title: "超初心者向け！【英語エッセイ】 MLAスタイル参考文献の引用方法"
 date: "2019-09-29"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["english"]
+tags: [	 "MLAスタイル", "小論文", "書き方", "英語エッセイ", "英論文"]
 avatar: './assets/y02jex_b0o0.jpg'
 ---
 

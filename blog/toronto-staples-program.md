@@ -1,8 +1,8 @@
 ---
 title: "留学中の英語勉強方法！無料の講座に参加しよう〜STAPLES編"
 date: "2019-09-09"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: ["体験記", "英語学習", "リスニング", "長期留学", "語学留学", "留学", "カナダ", "トロント",]
 avatar: "./assets/6wlcofn4hke.jpg"
 ---
 

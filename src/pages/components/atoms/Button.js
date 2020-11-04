@@ -115,7 +115,6 @@ h1 {
   background: ${Styles.COLOR.WHITE};
   color: ${Styles.COLOR.PRIMARY};
 }
-
  `;
 
 
@@ -177,5 +176,6 @@ const Button = (props) => {
   const component = map[type] || map.default; 
   return React.createElement(component, { onClick, text1, text2, to } )
 };
+
 
 export default Button

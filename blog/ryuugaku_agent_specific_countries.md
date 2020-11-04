@@ -1,8 +1,8 @@
 ---
 title: "留学エージェントの比較② 　国／都市専門型留学エージェント編"
 date: "2018-09-10"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: [ "留学準備", "長期留学", "語学留学", "留学", "留学エージェント"]
 avatar: './assets/snojy06kky4-1024x583.jpg'
 ---
 

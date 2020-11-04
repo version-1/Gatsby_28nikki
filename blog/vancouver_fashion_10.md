@@ -1,8 +1,8 @@
 ---
 title: "バンクーバー10月の服装と天気は？旅行・留学準備向けファッション"
 date: "2019-10-13"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: ["持ち物", "旅行", "留学準備", "長期留学", "語学留学", "留学", "カナダ", "バンクーバー",]
 avatar: "./assets/Vancouver_fashion_October.jpg"
 ---
 

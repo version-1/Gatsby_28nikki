@@ -1,7 +1,7 @@
 ---
 title: "inlingua Vancouver体験授業行ってきました。学校の評判と感想まとめ"
 date: "2019-10-17"
-categories: ["programming"]
+categories: ["study-abroad"]
 tags: ["語学学校", "語学学校レビュー", "カナダ", "トライアルレッスン",  "体験入学", "留学", "バンクーバー", "語学留学"]
 avatar: './assets/ak5c5vtch5e.jpg'
 ---

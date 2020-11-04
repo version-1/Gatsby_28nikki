@@ -1,8 +1,8 @@
 ---
 title: "留学用財布はクアトロガッツ【小さいふ。】が最高だったよレビュー"
 date: "2019-11-04"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: [ "留学準備", "長期留学", "語学留学", "留学", "持ち物", "お財布"]
 avatar: "./assets/ryugaku-wallet_cd2.png"
 ---
 

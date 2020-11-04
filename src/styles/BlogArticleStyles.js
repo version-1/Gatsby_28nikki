@@ -43,4 +43,14 @@ export const BlogArticleStyles = styled.div`
     list-style-position: outside;
     margin-left: 24px;
   }
+  a {
+    color: ${Styles.COLOR.SECONDARY};
+    font-weight: bold;
+    padding: 2px;
+  }
+
+  a:hover {
+    border-radius: ${Styles.BORDER_RADIUS};
+    color: ${Styles.COLOR.PRIMARY};
+}
 `

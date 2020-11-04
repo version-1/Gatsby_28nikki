@@ -1,8 +1,8 @@
 ---
 title: "ツール・ド・東北2018　人生初100kmサイクリングへの挑戦"
 date: "2018-09-17"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["others"]
+tags: ["アラサー", "自転車", "サイクリング", "健康管理", ]
 avatar: './assets/IMG_20180916_103851.jpg'
 ---
 

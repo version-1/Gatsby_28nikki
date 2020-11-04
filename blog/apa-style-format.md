@@ -24,11 +24,9 @@ avatar: "./assets/apa-style-format-cap.png"
 
 [APAフォーマットの参考文献、リファレンスの書き方についてはこちら](https://28-nikki.com/how-to-write-apa-reference/)。
 
-https://28-nikki.com/how-to-write-apa-reference/
 
-なお、そもそもの[英語小論文のコンテンツ、内容の盛り込み方や構成の作り方](https://28-nikki.com/how_to_write_english_essay_content/)については、こちらの記事で紹介しています
+なお、そもそもの[英語小論文のコンテンツ、内容の盛り込み方や構成の作り方については、こちらの記事](https://28-nikki.com/how_to_write_english_essay_content/)で紹介しています
 
-https://28-nikki.com/how\_to\_write\_english\_essay\_content/
 
 ## 英語エッセイでのAPAスタイルとは？
 
@@ -47,8 +45,8 @@ https://28-nikki.com/how\_to\_write\_english\_essay\_content/
 - **フォント：Times New Roman**
 - **フォントサイズ：12pt**
 - **テキスト行間：2**
-- **ページ番号：各ページ右上****に配置。　表記方法は「番号」のみ**
-- **論文省略タイトル：各ページ左上に配置。　表紙のみ「****Running Head : 」を付記**
+- **ページ番号：各ページ右上に配置。　表記方法は「番号」のみ**
+- **論文省略タイトル：各ページ左上に配置。　表紙のみ「Running Head : 」を付記**
 - **本文の各段落冒頭には「Tab」キーでスペースを入れる。**
 
 具体的な表紙、２ページ目以降の書式設定など各ルールの詳細を確認していきます。
@@ -183,10 +181,8 @@ APAスタイルでは、**ヘッダー部左上に省略タイトル（すべて
 
 <iframe style="width: 125px; height: 245px;" src="//rcm-fe.amazon-adsystem.com/e/cm?lt1=_blank&amp;bc1=000000&amp;IS2=1&amp;bg1=FFFFFF&amp;fc1=000000&amp;lc1=0000FF&amp;t=28nikki-22&amp;o=9&amp;p=8&amp;l=as4&amp;m=amazon&amp;f=ifr&amp;ref=as_ss_li_til&amp;asins=4766419219&amp;linkId=6900978a5ad2492f57bfb680d59363b7" frameborder="0" marginwidth="0" marginheight="0" scrolling="no"><span data-mce-type="bookmark" style="display: inline-block; width: 0px; overflow: hidden; line-height: 0;" class="mce_SELRES_start">﻿</span></iframe>
 
- また、そもそもの[英語小論文のコンテンツ、内容の盛り込み方や構成の作り方](https://28-nikki.com/how_to_write_english_essay_content/)については、こちらをご確認ください。
+ また、そもそもの[英語小論文のコンテンツ、内容の盛り込み方や構成の作り方については、こちら](https://28-nikki.com/how_to_write_english_essay_content/)をご確認ください。
 
-https://28-nikki.com/how\_to\_write\_english\_essay\_content/
 
 また、[APAスタイルの参考文献の書き方についてはこの記事](https://28-nikki.com/how-to-write-apa-reference/)に詳しく書いています。
 
-https://28-nikki.com/how-to-write-apa-reference/

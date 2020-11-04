@@ -1,8 +1,8 @@
 ---
 title: "【梅流し】プチ断食後に挑戦→効果がすごい！どのくらい効果はある？"
 date: "2019-08-18"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["health"]
+tags: ["アラサー", "梅流し", "ダイエット", "健康管理", "デトックス", "プチ断食" ]
 avatar: './assets/bpeqqxtflpy-1024x683.jpg'
 ---
 

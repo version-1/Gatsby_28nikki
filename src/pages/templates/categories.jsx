@@ -151,7 +151,7 @@ export const pageQuery = graphql`
           fields {
             slug
           }
-          excerpt
+          excerpt(truncate: true, pruneLength: 90)
         }
       }
     }

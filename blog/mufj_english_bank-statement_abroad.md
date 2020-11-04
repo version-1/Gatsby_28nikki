@@ -2,8 +2,8 @@
 title: "【英文残高証明書】三菱UFJ銀行は海外から／代理人でも発行可能？"
 date: "2019-10-26"
 avatar: "./assets/4ujhq5_fjik.jpg"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: ["残高証明書", "留学準備", "長期留学", "語学留学", "留学"]
 ---
 
 

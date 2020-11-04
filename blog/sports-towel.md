@@ -1,8 +1,8 @@
 ---
 title: "【留学タオル事情】留学用タオルは速乾タオルが絶対おすすめ！"
 date: "2019-10-27"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: [ "留学準備", "長期留学", "語学留学", "留学", "持ち物", "タオル"]
 avatar: "./assets/ryugaku-towl.png"
 ---
 

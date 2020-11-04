@@ -1,8 +1,8 @@
 ---
 title: "超初心者向け！絶対に書ける英語エッセイの書き方〜コンテンツ編〜"
 date: "2019-08-02"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["english"]
+tags: [	"APAスタイル", "MLAスタイル", "小論文", "書き方", "英語エッセイ", "英論文"]
 avatar: './assets/ouitrfhneke-1024x729.jpg'
 ---
 

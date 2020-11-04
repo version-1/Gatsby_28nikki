@@ -1,8 +1,8 @@
 ---
 title: "英語リスニング＊全然聞き取れない理由と５つの学習ポイント"
 date: "2019-09-22"
-categories: ["programming"]
-tags: ["tag1", ]
+# categories: ["english"]
+# tags: ["英語", "リスニング", "勉強法", "Netflix", "英語学習"]
 avatar: './assets/lyksrm9lw2m.jpg'
 ---
 

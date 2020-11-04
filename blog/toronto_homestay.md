@@ -1,8 +1,8 @@
 ---
 title: "1ヶ月で退去したトロントホームステイ感想とメリットデメリット"
 date: "2019-08-16"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: ["体験記", "留学準備", "長期留学", "語学留学", "留学", "カナダ", "トロント",]
 avatar: './assets/bjej8by1jyq-1024x683.jpg'
 ---
 

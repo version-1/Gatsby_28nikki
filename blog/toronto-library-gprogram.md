@@ -1,8 +1,8 @@
 ---
 title: "【トロント図書館】留学中の英語勉強法！無料の講座の参加方法は？"
 date: "2019-08-08"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: ["体験記", "英語学習", "リスニング", "長期留学", "語学留学", "留学", "カナダ", "トロント", "トロント図書館"]
 avatar: "./assets/toronto-library-gprogram_cd.png"
 ---
 

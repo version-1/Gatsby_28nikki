@@ -245,7 +245,8 @@ const ArticleCard = (props) => {
   const { originalTitle, to, avatar, date, excerpt, type} = props;
   const component = map[type] || map.default; 
   const title = originalTitle;
-  const text = excerpt.length > 140 ? excerpt.slice(0, 30) : excerpt;
+  const text = excerpt
+  // const text = excerpt.length > 140 ? excerpt.slice(0, 20) : excerpt;
   return React.createElement(component, { title, to, avatar, date, text, type} )
 };
 

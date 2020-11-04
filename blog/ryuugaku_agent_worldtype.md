@@ -1,8 +1,8 @@
 ---
 title: "留学エージェントの比較① 　世界各国取扱い型エージェント編"
 date: "2018-09-07"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: [ "留学準備", "長期留学", "語学留学", "留学", "留学エージェント"]
 avatar: './assets/ir5mhi6rpg0-1024x685.jpg'
 ---
 

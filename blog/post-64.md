@@ -1,8 +1,8 @@
 ---
 title: "【カナダ留学】トロント行きの飛行機、最安値航空チケットの購入方法"
 date: "2019-02-04"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: ["残高証明書", "留学準備", "長期留学", "語学留学", "留学",]
 avatar: './assets/gmj3tfolvna-1024x594.jpg'
 ---
 

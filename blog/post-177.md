@@ -1,8 +1,8 @@
 ---
 title: "英語リスニング　Netflix 厳選動画ドラマ嫌いにおすすめ3点"
 date: "2019-08-04"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["english"]
+tags: ["英語", "リスニング", "勉強法", "Netflix", "英語学習", "カナダ", "トロント",]
 avatar: './assets/jtmwd4i4v1u-772x1024.jpg'
 ---
 

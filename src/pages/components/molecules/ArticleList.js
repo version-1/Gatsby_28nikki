@@ -56,7 +56,7 @@ const ArticleList = (props) => {
             <ArticleCard key={title} avatar={avatar?.childImageSharp.sizes} date={date} to={slug} originalTitle={title} excerpt={excerpt}/>
           )
         )}
-        <ArticleCard key={category} to={`category/${categoryMap[category].url}/`} originalTitle={categoryMap[category].name} type="several" excerpt={category} />
+        <ArticleCard key={category} to={`${categoryMap[category].url}/`} originalTitle={categoryMap[category].name} type="several" excerpt={category} />
      </Articles>
     </>
   )

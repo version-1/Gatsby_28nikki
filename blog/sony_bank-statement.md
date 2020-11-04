@@ -1,8 +1,8 @@
 ---
 title: "【英文残高証明書】発行にかかる日数と申請方法は？-ソニー銀行"
 date: "2019-08-28"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: ["残高証明書", "留学準備", "長期留学", "語学留学", "留学"]
 avatar: './assets/oqmzwnd3thu-1024x684.jpg'
 ---
 

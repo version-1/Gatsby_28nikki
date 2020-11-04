@@ -1,8 +1,8 @@
 ---
 title: "糖質制限 6か月継続中！無理せず続けるコツをご紹介"
 date: "2018-10-07"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["health"]
+tags: ["アラサー", "糖質制限", "ダイエット", "健康管理", ]
 avatar: './assets/_zn_7fzol1w-1024x683.jpg'
 ---
 

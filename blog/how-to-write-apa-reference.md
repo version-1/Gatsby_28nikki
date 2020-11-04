@@ -1,8 +1,8 @@
 ---
 title: "超初心者向け！【英語エッセイ】APAスタイル参考文献の引用方法"
 date: "2020-08-01"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["english"]
+tags: [	"APAスタイル", "小論文", "書き方", "英語エッセイ", "英論文"]
 avatar: './assets/apa-reference-eye-catch.jpg'
 ---
 

@@ -2,8 +2,8 @@
 title: "持って来ればよかった！カナダトロント長期留学で必要な意外な持ち物３選"
 date: "2019-09-11"
 avatar: "./assets/nl-sxo4fahw.jpg"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: ["持ち物", "留学準備", "長期留学", "語学留学", "留学", "カナダ", "トロント",]
 ---
 
 ## 小さい財布（ポケットサイズ）

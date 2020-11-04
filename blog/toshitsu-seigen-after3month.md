@@ -1,8 +1,8 @@
 ---
 title: "ゆるすぎる糖質制限、３か月間でも効果が出たのでまとめ"
 date: "2018-09-24"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["health"]
+tags: ["アラサー", "糖質制限", "ダイエット", "健康管理", ]
 avatar: "./assets/4_jhdo54byg.jpg"
 ---
 

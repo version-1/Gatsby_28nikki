@@ -6,7 +6,6 @@ import ArticleCard from "./components/atoms/ArticleCard"
 import ArticleList from "./components/molecules/ArticleList"
 import SideBlogList from "./components/atoms/SideBlogList"
 import Pankuzu from "./components/atoms/Pankuzu"
-import { categoryMap } from "../styles/maps"
 
 const HeadArticle = styled.div`
   display: flex;
@@ -20,6 +19,7 @@ export default ({
     canadaArticlesAll: {edges: studyAbroadBlogs},
     recipeArticlesAll: {edges: recipeBlogs},
     programmingArticlesAll: {edges: programmingBlogs},
+    businessArticlesAll: {edges: businessBlogs},
     healthArticlesAll: {edges: healthBlogs},
     othersArticlesAll: {edges: othersBlogs},
     recentlyAllMarkdownRemark: { edges: recentlyBlogs },
@@ -29,8 +29,9 @@ export default ({
   const map = {
     "english" : englishBlogs,
     "study-abroad" : studyAbroadBlogs,
-    "recipe" : recipeBlogs,
+    "business" : businessBlogs,
     "programming" : programmingBlogs, 
+    "recipe" : recipeBlogs,
     "health" : healthBlogs,
     "others" : othersBlogs
     }
@@ -103,7 +104,38 @@ export const query = graphql`
           fields {
             slug
           }
-          excerpt
+          excerpt(truncate: true, pruneLength: 68)
+        }
+      }
+    }
+    businessArticlesAll: allMarkdownRemark(
+      sort: { fields: [frontmatter___date], 
+      order: DESC}
+      filter: { frontmatter: { categories: { in: ["business"] } } }
+      limit: 5
+      ) {
+      edges {
+        node {
+          id
+          frontmatter {
+            title
+            date(formatString: "YYYY/MM/DD")
+            categories
+            avatar {
+              childImageSharp {
+                fluid(maxWidth: 500, quality: 50) {
+                  ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                }
+                sizes(maxHeight: 300, maxWidth: 250) {
+                  ...GatsbyImageSharpSizes
+                }
+              }
+            }
+          }
+          fields {
+            slug
+          }
+          excerpt(truncate: true, pruneLength: 68)
         }
       }
     }
@@ -134,7 +166,7 @@ export const query = graphql`
           fields {
             slug
           }
-          excerpt
+          excerpt(truncate: true, pruneLength: 68)
         }
       }
     }
@@ -165,7 +197,7 @@ export const query = graphql`
           fields {
             slug
           }
-          excerpt
+          excerpt(truncate: true, pruneLength: 68)
         }
       }
     }
@@ -196,7 +228,7 @@ export const query = graphql`
           fields {
             slug
           }
-          excerpt
+          excerpt(truncate: true, pruneLength: 68)
         }
       }
     }
@@ -227,7 +259,7 @@ export const query = graphql`
           fields {
             slug
           }
-          excerpt
+          excerpt(truncate: true, pruneLength: 68)
         }
       }
     }
@@ -258,7 +290,7 @@ export const query = graphql`
           fields {
             slug
           }
-          excerpt
+          excerpt(truncate: true, pruneLength: 68)
         }
       }
     }
@@ -289,7 +321,7 @@ export const query = graphql`
           fields {
             slug
           }
-          excerpt
+          excerpt(truncate: true, pruneLength: 68)
         }
       }
     }

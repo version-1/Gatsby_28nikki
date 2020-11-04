@@ -1,8 +1,8 @@
 ---
 title: "旅行用スーツケースの選び方　留学・海外旅行で気をつけるべきこととは？"
 date: "2019-08-25"
-categories: ["programming"]
-tags: ["tag1", ]
+categories: ["study-abroad"]
+tags: ["持ち物", "留学準備", "長期留学", "語学留学", "留学", ]
 avatar: './assets/mseswdmzr-a-1024x683.jpg'
 ---
 

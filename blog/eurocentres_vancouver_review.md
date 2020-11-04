@@ -2,7 +2,7 @@
 title: "Eurocentres Vancouver体験授業行ってきました。学校の評判と感想は？"
 date: "2019-10-21"
 avatar: "./assets/IMG_20191023_144700.jpg"
-categories: ["programming"]
+categories: ["study-abroad"]
 tags: ["語学学校", "語学学校レビュー", "カナダ", "トライアルレッスン",  "体験入学", "留学", "バンクーバー", "語学留学"]
 ---
 
