@@ -9,22 +9,25 @@ const commonStyle = {
 }
 
 const ButtonOriginal = styled.div`
-  cursor: ${props => props.to ? !null : "pointer"};
+ ${props =>props.to && "cursor: pointer;"}
   width: ${commonStyle.width}px;
   height: ${commonStyle.height}px;
   box-sizing: border-box;
   text-decoration: none;
-  font-weight: 800;
   border-radius: ${Styles.BORDER_RADIUS};
   border: 2px solid ${Styles.COLOR.LIGHTGLAY};
   font-size: 1rem;
   margin: 8px 4px;
+  background: ${props =>props.type === "title" ? Styles.COLOR.PRIMARY : Styles.COLOR.WHITE};
   padding: 0;
   z-index: -1;
+  border: 2px solid ${props => props.type === "title" ? Styles.COLOR.PRIMARY : Styles.COLOR[props.type]};
+  margin-right: ${props => props.type === "title" && "20px"};
+  transition: 1s;
 `;
 
 const ButtonText = styled.div`
-  cursor: pointer;
+ ${props =>props.to && "cursor: pointer;"}
   height: 100%;
   width: 100%;
   display: flex;
@@ -35,146 +38,72 @@ const ButtonText = styled.div`
   z-index: 3;
   position: relative;
   text-align: center;
-
-  &::before, &::after {
-    position: absolute;
-    transition: 1s;
-    box-sizing: border-box;
-    content: '';
-    z-index: -1;
-    background: ${Styles.COLOR.WHITE};}
-  
-  &::before {
-    height: ${(commonStyle.height / 4 * 3)}px;
-    width:  ${commonStyle.width}px ;
-    top: ${commonStyle.height / 10}px;
-    left: -2px;
-    }
-  
-  &::after {
-    height: ${commonStyle.height}px ;;
-    width:  ${commonStyle.width/ 4 * 3}px ;
-    top: -2px;
-    left: ${commonStyle.width / 10}px ;
-    }
-  
-  &:hover::before {
-    transform: scaleY(0);
-  }
-  
-  &:hover::after {
-    transform: scaleX(0);
-  }
-
-  span {
-    display: block;
-  }
- `;
-
- const ButtonElementDefault = styled(ButtonOriginal)`
-  color: ${Styles.COLOR.LIGHTGLAY};
-  background: ${Styles.COLOR.WHITE};
- `;
-
-const ButtonElementPrimary = styled(ButtonOriginal)`
-  color: ${Styles.COLOR.PRIMARY};
-  border: 2px solid ${Styles.COLOR.PRIMARY};
-`;
-
-const ButtonElementSecondary = styled(ButtonOriginal)`
-  color: ${Styles.COLOR.SECONDARY};
-  border: 2px solid ${Styles.COLOR.SECONDARY};
-`;
-
-const ButtonElementHeader = styled(ButtonOriginal)`
-  color: ${Styles.COLOR.WHITE};
-  background: ${Styles.COLOR.PRIMARY};
-  border: 2px solid ${Styles.COLOR.PRIMARY};
-  margin-right: 20px;
-`;
-
-const ButtonTextHeader = styled.div`
-  cursor: pointer;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-sizing: border-box;
+  color:  ${props => props.type === "title" ? Styles.COLOR.WHITE : Styles.COLOR[props.type]};
+  transition: 1s;
+  font-weight: 800;
+  h1 {
+    font-size: ${Styles.FONT_SIZE.MIDDLE}px;
     margin: 0;
-    z-index: 3;
-    position: relative;
-    text-align: center;
-    transition: 1s;
-h1 {
-  font-size: ${Styles.FONT_SIZE.MIDDLE}px;
-  margin: 0;
-  padding: 0;
-}
-&:hover {
-  background: ${Styles.COLOR.WHITE};
-  color: ${Styles.COLOR.PRIMARY};
-}
+    padding: 0;
+  }
+  span {
+    font-size: .9rem;
+  }
+  &:hover {
+    background: ${props =>props.type === "title" ? Styles.COLOR.WHITE : props.type ? Styles.COLOR[props.type] : Styles.COLOR.DARK};
+    color: ${props =>props.type === "title" ? Styles.COLOR.PRIMARY : Styles.COLOR.WHITE };
+  }
  `;
 
 
-const ButtonDefault = (props) => {
-  const { onClick, text1, text2, to } = props;
-  return (
-    <Link to={to}>
-      <ButtonElementDefault onClick={onClick}>
-       <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
-      </ButtonElementDefault>
-    </Link>
+ const Text = ({text1, text2, type}) => {
+  if (type === "title") {
+    return(
+      <h1>
+        {text1}
+        {text2 ? <br /> : "" }
+        {text2}
+      </h1>
+    )
+ } else {
+  return(
+    <span>
+      {text1}
+      {text2 ? <br /> : "" }
+      {text2}
+    </span>
   )
-}
-
-const ButtonPrimary = (props) => {
-  const { onClick, text1, text2, to } = props;
-  return (
-    <Link to={to}>
-      <ButtonElementPrimary onClick={onClick}>
-        <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
-      </ButtonElementPrimary>
-    </Link>
-  )
-}
-
-
-const ButtonSecondary = (props) => {
-  const { onClick, text1, text2, to } = props;
-  return (
-    <Link to={to}>
-      <ButtonElementSecondary onClick={onClick}>
-        <ButtonText><span>{text1}{text2 ? <br /> : "" }{text2}</span></ButtonText>
-      </ButtonElementSecondary>
-    </Link>
-  )
-}
-
-const ButtonHeader = (props) => {
-  const { onClick, text1, text2, to } = props;
-  return (
-    <Link to={to}>
-      <ButtonElementHeader onClick={onClick}>
-        <ButtonTextHeader><h1>{text1}{text2 ? <br /> : "" }{text2}</h1></ButtonTextHeader>
-      </ButtonElementHeader>
-    </Link>
-  )
+ }
 }
 
 
-const map = {
-  default: ButtonDefault,
-  primary: ButtonPrimary,
-  secondary: ButtonSecondary,
-  title: ButtonHeader,
-};
+
 
 const Button = (props) => {
   const { to, text1, text2,  onClick, type } = props;
-  const component = map[type] || map.default; 
-  return React.createElement(component, { onClick, text1, text2, to } )
+  if (to) {
+    return (      
+      <Link to={to}> 
+        <ButtonOriginal type={type} to={to} onClick={onClick}>
+          <ButtonText type={type} to={to} >
+            <Text type={type} text1={text1} text2={text2} />
+          </ButtonText>
+        </ButtonOriginal>
+      </Link>
+      )
+  } else {
+  return (
+    <ButtonOriginal type={type} to={to} onClick={onClick}>
+      <ButtonText type={type} to={to} >
+        <h1>
+          {text1}
+          {text2 ? <br /> : "" }
+          {text2}
+        </h1>
+      </ButtonText>
+    </ButtonOriginal>
+  )
+}
 };
 
 

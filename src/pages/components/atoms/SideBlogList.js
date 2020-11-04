@@ -25,7 +25,7 @@ const ArticleList = (props) => {
 
     return (
       <SideBar>
-               <Button text1={text1} text2={text2} type="secondary"/>
+        <Button text1={text1} text2={text2} type="SECONDARY"/>
           {blogs.map(
             ({
               node: {

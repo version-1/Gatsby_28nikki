@@ -41,7 +41,7 @@ const ArticleList = (props) => {
   return (
     <>
       <Title>
-        <Button type="secondary" text1={categoryMap[category].name} to={categoryMap[category].url}/>
+        <Button type="SECONDARY" text1={categoryMap[category].name} to={categoryMap[category].url}/>
       </Title>
       <Articles>
         {blogs.map(

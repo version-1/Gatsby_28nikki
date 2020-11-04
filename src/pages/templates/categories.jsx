@@ -93,7 +93,7 @@ export default ({
           <SideBlogList blogs={randomList} text1="ピック" text2="アップ" />
       </HeadArticle>
       <Title>
-        <Button text1="過去の" text2="記事" type="secondary"/>
+        <Button text1="過去の" text2="記事" type="SECONDARY"/>
       </Title>
       {blogs.slice(1, blogs.length).map(
         ({
