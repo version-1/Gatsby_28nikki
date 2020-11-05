@@ -39,7 +39,7 @@ const Title = styled.h4`
     width: 75%;
     margin: 4px;
     padding: 4px;
-    font-size: 0.8em;
+    font-size: 0.9em;
     position: absolute;
     top: 4px;
     left: 4px;

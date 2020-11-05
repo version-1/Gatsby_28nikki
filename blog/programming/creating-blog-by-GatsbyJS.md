@@ -1,7 +1,7 @@
 ---
 title: "GatsbyJSでブログを作り直している（WordPressから移行）"
 date: "2020-09-15"
-categories: ["プログラミング"]
+categories: ["programming"]
 tags: ["GatsbyJS", "ブログ作成"]
 avatar: '../assets/i_05.png'
 ---
@@ -66,3 +66,9 @@ avatar: '../assets/i_05.png'
 
 * 記事目次の追加
 [GatsbyJSブログの記事に目次を追加した](https://rpf-noblog.com/2020-05-03/gatsby-toc)
+
+ * 記事抜粋（excerpt）が失敗する
+ [gatsby-transformer-remark](https://github.com/gatsbyjs/gatsby/tree/9b6f36597e87faf0f647abf9bd20ac72f0596089/packages/gatsby-transformer-remark#excerpts-for-non-latin-languages)
+
+ * Adsenseの導入
+ [GatsbyサイトにGoogleAdSenseを導入する](https://qiita.com/bob_yama/items/2b24fca112587a1bf8e8)

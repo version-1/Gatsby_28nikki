@@ -2,7 +2,7 @@
 title: "海外留学で有料の保険に入らないで【留学費用】を節約した方法"
 date: "2019-04-29"
 avatar: "./assets/rmbyg5kffqg.jpg"
-categories: ["programming"]
+categories: ["study-abroad"]
 tags: ["カナダ","持ち物","留学","留学準備", ]
 ---
 
