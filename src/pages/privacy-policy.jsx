@@ -1,8 +1,15 @@
 import React from "react"
 import Layout from "./components/Layout"
 import Pankuzu from "./components/atoms/Pankuzu"
+import SEO from "./components/seo"
 
 export default () => (
+  <>
+    <SEO title="プライバシーポリシー"
+  description="プライバシーポリシー"
+  image="twitterCard.png"
+  lang="ja"
+   />
   <Layout>
     <Pankuzu />
     <h2>プライバシーポリシー</h2>
@@ -31,4 +38,5 @@ export default () => (
     <p>当サイトは完全リンクフリーです。トップページ、記事等、正規に公開しているページであれば、ご自由にリンクしていただいて問題ありません。ただし、画像への直リンクなどは禁止させていただきます。</p>
 
   </Layout>
+  </>
 )

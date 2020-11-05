@@ -6,6 +6,7 @@ import ArticleCard from "./components/atoms/ArticleCard"
 import ArticleList from "./components/molecules/ArticleList"
 import SideBlogList from "./components/atoms/SideBlogList"
 import Pankuzu from "./components/atoms/Pankuzu"
+import SEO from "./components/seo"
 
 const HeadArticle = styled.div`
   display: flex;
@@ -37,6 +38,11 @@ export default ({
     }
 
   return (
+    <>
+    <SEO title="ニッパチニッキ"
+      image="twitterCard.png"
+      lang="ja"
+/>
   <Layout page={"top"}>
     <Pankuzu />
     <HeadArticle>
@@ -52,6 +58,7 @@ export default ({
       }
     )}
   </Layout>
+　 </>
 )
 }
 

@@ -8,6 +8,7 @@ import Button from "../components/atoms/Button"
 import SideBlogList from "../components/atoms/SideBlogList"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import  Pankuzu from '../components/atoms/Pankuzu'
+import SEO from '../components/seo'
 
 const Article = styled.div`
   display: flex;
@@ -86,6 +87,12 @@ export default ({
  
   
   return (
+    <>
+    <SEO title={blogs[0].node.frontmatter.categories[0]} 
+      description={blogs[0].node.frontmatter.categories[0]}
+      image="twitterCard.png"
+      lang="ja"
+/>
     <Layout>
       <Pankuzu middle={blogs[0].node.frontmatter.categories[0]} />
       <HeadArticle>
@@ -120,6 +127,7 @@ export default ({
       )}
 
     </Layout>
+    </>
   )
 }
 

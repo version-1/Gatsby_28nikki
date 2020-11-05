@@ -8,6 +8,7 @@ import { Styles, BreakPoints, Responsive } from '../../styles/style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { BlogArticleStyles } from '../../styles/BlogArticleStyles'
 import Pankuzu from '../components/atoms/Pankuzu'
+import SEO from '../components/seo'
 
 const Article = styled.div`
   box-sizing: border-box;
@@ -77,21 +78,23 @@ const Pict = styled.div`
   }
 `
 
-
-
-
-
 export default ({
   data: {
     markdownRemark: {
       html,
       frontmatter: { title, categories, tags, avatar, date },
       fields: { slug },
+      excerpt,
     },
   },
 }) => {
   return (
     <Layout>
+      <SEO title={title} 
+        description={excerpt}
+        image={avatar.childImageSharp.fluid}  
+        lang="ja"
+    />
       <Pankuzu middle={categories[0]} article={{name: title, to: slug}} />
       <Article>
       <h2>{title}</h2>
@@ -144,6 +147,7 @@ export const query = graphql`
       fields {
         slug
       }
+      excerpt(truncate: true, pruneLength: 120)
     }
   }
 `

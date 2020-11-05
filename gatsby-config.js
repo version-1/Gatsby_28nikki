@@ -9,11 +9,18 @@ const path = require(`path`)
 module.exports = {
   /* Your site config here */
   siteMetadata: {
-    title: "ニッパチニッキ",
-    description: "アラサー女性のカナダ社会人留学記録"
+    title: `ニッパチニッキ`,
+    titleTemplate: `%s - ニッパチニッキ`,
+    description: `アラサー女性のカナダ社会人留学記録`,
+    author: `モトキ`,
+    siteUrl: `https://28-nikki.com`,
+    url: `https://28-nikki.com`,
+    lang: `en`,
+    image: `/static/twitterCard.png`,
+    twitterUsername: ``
   },
   plugins: [
-    "gatsby-plugin-react-helmet",
+    `gatsby-plugin-react-helmet`,
     `gatsby-plugin-styled-components`,
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`, 
@@ -54,9 +61,9 @@ module.exports = {
             },
           },
           {
-            resolve: "gatsby-remark-component",
+            resolve: `gatsby-remark-component`,
             //変換する要素を指定したいときはoptionに記載する
-            // options: { components: ["my-component", "other-component"] }
+            // options: { components: [`my-component`, `other-component`] }
           },
         ],
       },

@@ -1,7 +1,15 @@
 import React from "react"
 import Layout from "./components/Layout"
+import SEO from "./components/seo"
+
 
 export default () => (
+  <>
+  <SEO title="お問い合わせ"
+  description="問い合わせページ"
+  image="twitterCard.png"
+  lang="ja"
+   />
   <Layout>
     <h1>サンプルページ</h1>
     <p>
@@ -14,4 +22,5 @@ export default () => (
       </p>
     </blockquote>
   </Layout>
+  </>
 )

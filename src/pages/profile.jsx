@@ -4,6 +4,7 @@ import Image from "./components/image"
 import styled from 'styled-components'
 import Pankuzu from "./components/atoms/Pankuzu"
 import { BreakPoints, Responsive } from '../styles/style'
+import SEO from "./components/seo"
 
 const Pict = styled.div`
   width: 200px;
@@ -19,6 +20,12 @@ const Profile = styled.div`
 `
 
 export default () => (
+  <>
+  <SEO title="プロフィール"
+  description="管理人プロフィール"
+  image="twitterCard.png"
+  lang="ja"
+   />
   <Layout>
     <Pankuzu />
     <Profile>
@@ -41,4 +48,5 @@ export default () => (
         <p>英語、プログラミング、お金</p>
       </Profile>
   </Layout>
+  </>
 )

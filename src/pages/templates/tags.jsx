@@ -6,6 +6,7 @@ import { Styles, Responsive } from '../../styles/style'
 import ArticleCard from "../components/atoms/ArticleCard"
 import SideBlogList from "../components/atoms/SideBlogList"
 import  Pankuzu from '../components/atoms/Pankuzu'
+import SEO from '../components/seo'
 
 const Card = styled.div`
   width: 240px;
@@ -74,6 +75,12 @@ export default ({
   const randomList = createRandom()
   
   return (
+    <>
+    <SEO title={location.pathname} 
+      description={location.pathname}
+      image="twitterCard.png"
+      lang="ja"
+/>
     <Layout>
       <Pankuzu middle={location.pathname} type="tag"/>
       <HeadArticle>
@@ -104,6 +111,7 @@ export default ({
       )}
 
     </Layout>
+    </>
   )
 }
 
@@ -135,7 +143,7 @@ export const pageQuery = graphql`
           fields {
             slug
           }
-          excerpt
+          excerpt(truncate: true, pruneLength: 90)
         }
       }
     }
