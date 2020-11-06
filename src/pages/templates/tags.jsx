@@ -59,7 +59,6 @@ export default ({
   },
   location
 }) => {
-  console.log(blogs)
     const createRandom = () => {
       const arr = []
       const exceptLatest = blogs.slice(1, blogs.length)
