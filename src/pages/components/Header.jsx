@@ -29,9 +29,7 @@ const Titlebar = styled.div`
   margin: 0;
   display: flex;
   align-items: flex-end;
-
 `
-
 
 export default ({ page }) => {
   const {

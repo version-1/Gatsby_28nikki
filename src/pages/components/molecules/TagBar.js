@@ -55,7 +55,7 @@ const TagBar = (props) => {
               return  b.totalCount - a.totalCount;
             }).slice(0, 6).map(({ tag }) => (
             <li key={tag}>
-              <Link to={`tag/${tag}`}>#{tag}</Link>
+              <Link to={`/tag/${tag}`}>#{tag}</Link>
             </li>
           ))}
       </TagList>

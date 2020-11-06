@@ -40,16 +40,16 @@ const Pankuzu = (props) => {
     return (
             <PankuzuList>
             <Item>
-                <Link to=""><FontAwesomeIcon icon={['fas', 'map-marker-alt']} /> TOP</Link>
+                <Link to="/"><FontAwesomeIcon icon={['fas', 'map-marker-alt']} /> TOP</Link>
             </Item>
             {middle ?
                 <Item>
-                      &gt; <Link to={createPath(type)}>{createName(type)}</Link>
+                      &gt; <Link to={`/${createPath(type)}`} >{createName(type)}</Link>
                 </Item> : ""
             }
             {article ? 
                     <Item>
-                         &gt; <Link to={article.to}>{article.name}</Link> 
+                         &gt; <Link to={`${article.to}`}>{article.name}</Link> 
                     </Item>
                     : ""
                 }

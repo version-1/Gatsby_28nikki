@@ -120,9 +120,9 @@ export default ({
   
       <Tags>
       {categories.map((category) => (
-        <Link to={`category/${categoryMap[category].url}/`}><Category>{categoryMap[category].name}</Category></Link>
+        <Link to={`/${categoryMap[category].url}`}><Category>{categoryMap[category].name}</Category></Link>
         ))} 
-        {tags.map((tag) => (<Link to={`tag/${tag}`}><Tag>#{tag}</Tag></Link>))} 
+        {tags.map((tag) => (<Link to={`/tag/${tag}`}><Tag>#{tag}</Tag></Link>))} 
       </Tags>
 
       </Article>

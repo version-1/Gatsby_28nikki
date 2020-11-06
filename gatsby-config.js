@@ -75,11 +75,6 @@ module.exports = {
               maintainCase: true,
             },
           },
-          {
-            resolve: `gatsby-remark-component`,
-            //変換する要素を指定したいときはoptionに記載する
-            // options: { components: [`my-component`, `other-component`] }
-          },
         ],
       },
     },

@@ -51,7 +51,7 @@ const NavBar = (props) => {
       <NavList>
         {Object.keys(categoryMap).map(
               (key) => {
-                return <li><Link to={categoryMap[key].url}>{categoryMap[key].name}</Link></li>
+                return <li><Link to={`/${categoryMap[key].url}`}>{categoryMap[key].name}</Link></li>
               }
             )}
       </NavList>
