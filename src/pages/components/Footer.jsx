@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import styled from 'styled-components'
 import { Styles, BreakPoints, Responsive } from '../../styles/style'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 const Footer = styled.footer`
   box-sizing: border-box;
@@ -36,6 +36,7 @@ const Upper = styled.div`
 
 const ToTop = styled.a`
   font-size: ${Styles.FONT_SIZE.DEFAULT}px;
+  cursor: pointer;
 `
 
 const Copy = styled.p`
@@ -45,7 +46,7 @@ const Copy = styled.p`
 export default () => (
   <Footer>
       <Upper>
-        <ToTop href="#"><FontAwesomeIcon icon={['fas', 'arrow-circle-up']} /> TOPに戻る</ToTop>
+        <ToTop onClick={() => scrollTo('html')}><FontAwesomeIcon icon={['fas', 'arrow-circle-up']} /> TOPに戻る</ToTop>
       </Upper>
     <ul>
       <li><Link to="profile">プロフィール</Link></li>

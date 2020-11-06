@@ -9,6 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { BlogArticleStyles } from '../../styles/BlogArticleStyles'
 import Pankuzu from '../components/atoms/Pankuzu'
 import SEO from '../components/seo'
+import Toc from '../components/atoms/Toc'
 
 const Article = styled.div`
   box-sizing: border-box;
@@ -85,6 +86,7 @@ export default ({
       frontmatter: { title, categories, tags, avatar, date },
       fields: { slug },
       excerpt,
+      tableOfContents
     },
   },
 }) => {
@@ -113,6 +115,7 @@ export default ({
            }}/>
         </Pict>
       <Date><FontAwesomeIcon icon={['far', 'clock']} /> {date} モトキ</Date>
+      <Toc data={tableOfContents} />
       <BlogArticleStyles dangerouslySetInnerHTML={{ __html: html }} />
   
       <Tags>
@@ -131,6 +134,8 @@ export const query = graphql`
   query($slug: String) {
     markdownRemark(fields: { slug: { eq: $slug } }) {
       html
+      tableOfContents
+      excerpt(truncate: true, pruneLength: 120)
       frontmatter {
         title
         categories
@@ -147,7 +152,6 @@ export const query = graphql`
       fields {
         slug
       }
-      excerpt(truncate: true, pruneLength: 120)
     }
   }
 `
