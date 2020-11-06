@@ -3,7 +3,7 @@ title: "GatsbyJSでブログを作り直している（WordPressから移行）"
 date: "2020-09-15"
 categories: ["programming"]
 tags: ["GatsbyJS", "ブログ作成"]
-avatar: '../assets/i_05.png'
+avatar: '../assets/developer-3461405_1920.png'
 ---
 
 ## データが飛んだので、WordPressからGatsbyJSへの移行を決意
@@ -34,13 +34,11 @@ avatar: '../assets/i_05.png'
 
 ## 途中でつまづいたこと一覧
 
-* チュートリアルとか英語読むのしんどい時
-
+* チュートリアルとか英語読むのしんどかった時
 [Gatsby公式チュートリアルやったよ](https://qiita.com/irico/items/cf87eb29ecaf7e135fcd)
 
 * GraphQLでのデータ生成
 * styled-componentを使ってのデザイン
-* 
 
 [GatsbyJS公式 Styled Components](https://www.gatsbyjs.com/docs/styled-components/)
 
@@ -49,7 +47,6 @@ avatar: '../assets/i_05.png'
 
 
 * 画像にスタイルを適用
-
 [styled-components公式 やり方再確認](https://styled-components.com/docs/advanced#referring-to-other-components)
 
 * マークダウンファイルに紐づけた画像からパスを取得しヘッド画像として表示する
@@ -57,7 +54,7 @@ avatar: '../assets/i_05.png'
 
 [Gatsby で記事のトップ画像を設定](https://suzukalight.com/2019-07-02-hero-image/)
 
-* データ生成時ののソートを2種類選択
+* GraphQLでデータ生成時のソートを2種類選択
 [GatsbyJS公式 GraphQL Query Options Reference](https://www.gatsbyjs.com/docs/graphql-reference/#sort)
 
 * TwitterカードとSEO

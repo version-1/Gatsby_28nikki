@@ -22,7 +22,7 @@ const Article = styled.div`
 
 const HeadArticle = styled.div`
   display: flex;
-  margin-bottom: 100px;
+  margin-bottom: 8px;
 `
 
 const Info = styled.div`

@@ -19,7 +19,7 @@ const Article = styled.div`
 
 const HeadArticle = styled.div`
   display: flex;
-  margin-bottom: 100px;
+  margin-bottom: 8px;
 `
 const Card = styled.div`
   width: 240px;
