@@ -71,4 +71,4 @@ avatar: '../assets/i_05.png'
  [gatsby-transformer-remark](https://github.com/gatsbyjs/gatsby/tree/9b6f36597e87faf0f647abf9bd20ac72f0596089/packages/gatsby-transformer-remark#excerpts-for-non-latin-languages)
 
  * Adsenseの導入
- [GatsbyサイトにGoogleAdSenseを導入する](https://qiita.com/bob_yama/items/2b24fca112587a1bf8e8)
+ [GatsbyでAdsenseを表示する方法](https://31navi.com/gatsby-adsense)
