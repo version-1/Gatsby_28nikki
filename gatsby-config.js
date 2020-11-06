@@ -65,6 +65,12 @@ module.exports = {
             //変換する要素を指定したいときはoptionに記載する
             // options: { components: [`my-component`, `other-component`] }
           },
+          {
+            resolve: `gatsby-plugin-google-adsense`,
+            options: {
+                publisherId: `ca-pub-3602297049510061`
+            },
+          }
         ],
       },
     },

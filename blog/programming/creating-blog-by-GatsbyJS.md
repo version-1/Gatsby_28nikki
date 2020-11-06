@@ -58,11 +58,11 @@ avatar: '../assets/i_05.png'
 [Gatsby で記事のトップ画像を設定](https://suzukalight.com/2019-07-02-hero-image/)
 
 * データ生成時ののソートを2種類選択
-
 [GatsbyJS公式 GraphQL Query Options Reference](https://www.gatsbyjs.com/docs/graphql-reference/#sort)
 
-* OGP画像の生成
-[GatsbyJSブログのOGP画像を動的に生成した](https://rpf-noblog.com/2020-07-01/gatsby-ogp-image/)
+* TwitterカードとSEO
+[GatsbyJSで作ったブログのページタイトル生成処理とSEOについて](https://gan0803.dev/2020-06-01-page-title/)
+[Gatsby: SEO対策（Twitterカードなどmetaタグ設置）](https://qiita.com/atomyah/items/2624ea4f9394e4a992b8)
 
 * 記事目次の追加
 [GatsbyJSブログの記事に目次を追加した](https://rpf-noblog.com/2020-05-03/gatsby-toc)
