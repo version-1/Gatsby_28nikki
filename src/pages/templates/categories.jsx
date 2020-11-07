@@ -14,7 +14,7 @@ const Article = styled.div`
   display: flex;
   width: 100%;
   margin: 16px 0;
-  padding: 0;
+  padding: 0;g
 `
 
 const HeadArticle = styled.div`
@@ -68,6 +68,7 @@ export default ({
   data: {
     allMarkdownRemark: { totalCount, edges: blogs },
   },
+    pageContext
   
 }) => {
   const createRandom = () => {
@@ -84,12 +85,12 @@ export default ({
   }
 
   const randomList = createRandom()
- 
+ console.log(`category`, pageContext, blogs)
   
   return (
     <>
-    <SEO title={blogs[0].node.frontmatter.categories[0]} 
-      description={blogs[0].node.frontmatter.categories[0]}
+    <SEO title="カテゴリ記事一覧"
+      description="カテゴリ記事一覧"
       image="twitterCard.png"
       lang="ja"
 />

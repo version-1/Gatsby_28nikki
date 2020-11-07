@@ -3,7 +3,7 @@ title: "【留学エージェントの選び方】損しないための３つの
 date: "2018-11-18"
 categories: ["study-abroad"]
 tags: [ "留学準備", "長期留学", "語学留学", "留学", "留学エージェント"]
-avatar: "./assets/"
+avatar: "./assets/snojy06kky4-1024x583.jpg"
 ---
 
 <!-- ryugaku_agent_how-to-choose_cd.png -->
