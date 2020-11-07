@@ -1,12 +1,12 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
-import styled from 'styled-components'
-import { Styles, Responsive } from '../../styles/style'
+import styled from "styled-components"
+import { Styles, Responsive } from "../../styles/style"
 import ArticleCard from "../components/atoms/ArticleCard"
 import SideBlogList from "../components/atoms/SideBlogList"
-import  Pankuzu from '../components/atoms/Pankuzu'
-import SEO from '../components/seo'
+import Pankuzu from "../components/atoms/Pankuzu"
+import SEO from "../components/seo"
 
 const Card = styled.div`
   width: 240px;
@@ -32,84 +32,104 @@ const Info = styled.div`
   justify-content: flex-start;
   height: 70px;
   box-sizing: border-box;
-`;
-
+`
 
 const SubInfo = styled.div`
-    font-family: ${Styles.FONT_FAMILY.EN};
-    font-size: ${Styles.FONT_SIZE.SMALL}px;
-    color: ${Styles.COLOR.LIGHTGLAY};
-    margin: 0px;
-    margin-bottom: 10px;
-`;
+  font-family: ${Styles.FONT_FAMILY.EN};
+  font-size: ${Styles.FONT_SIZE.SMALL}px;
+  color: ${Styles.COLOR.LIGHTGLAY};
+  margin: 0px;
+  margin-bottom: 10px;
+`
 
 const Description = styled.div`
-    width: 100%;
-    color: ${Styles.COLOR.LIGHTGLAY};
-    font-size: ${Styles.FONT_SIZE.MIDDLE}px;
-    ${Responsive("sm")} {
-      font-size: ${Styles.FONT_SIZE.SMALL}px;
-    }
-`;
-
+  width: 100%;
+  color: ${Styles.COLOR.LIGHTGLAY};
+  font-size: ${Styles.FONT_SIZE.MIDDLE}px;
+  ${Responsive("sm")} {
+    font-size: ${Styles.FONT_SIZE.SMALL}px;
+  }
+`
 
 export default ({
   data: {
-    allMarkdownRemark: { totalCount, edges: blogs },
+    allMarkdownRemark: { totalCount, edges: blogs }
   },
   location
 }) => {
-    const createRandom = () => {
-      const arr = []
-      const exceptLatest = blogs.slice(1, blogs.length)
-      if (blogs.length < 5) {
-        return blogs
-      }
-      while (arr.length < 5) {
-          var random = Math.floor( Math.random() * (blogs.length - 1) ) ;
-          arr.push(exceptLatest[random])
-      }
-      return arr
+  const createRandom = () => {
+    const arr = []
+    const exceptLatest = blogs.slice(1, blogs.length)
+    if (blogs.length < 5) {
+      return blogs
+    }
+    while (arr.length < 5) {
+      var random = Math.floor(Math.random() * (blogs.length - 1))
+      arr.push(exceptLatest[random])
+    }
+    return arr
   }
   const randomList = createRandom()
-  
+  const [first] = blogs || []
+  if (!first) {
+    return <></>
+  }
+  const { frontmatter, fields, excerpt } = first.node
+  const { avatar, date, title } = frontmatter
+
   return (
     <>
-    <SEO title={location.pathname} 
-      description={location.pathname}
-      image="twitterCard.png"
-      lang="ja"
-/>
-    <Layout>
-      <Pankuzu middle={location.pathname} type="tag"/>
-      <HeadArticle>
-        <ArticleCard type='large' avatar={blogs[0].node.frontmatter.avatar?.childImageSharp.sizes} date={blogs[0].node.frontmatter.date} to={blogs[0].node.fields.slug} originalTitle={blogs[0].node.frontmatter.title} excerpt={blogs[0].node.excerpt}/>
+      <SEO
+        title={location.pathname}
+        description={location.pathname}
+        image="twitterCard.png"
+        lang="ja"
+      />
+      <Layout>
+        <Pankuzu middle={location.pathname} type="tag" />
+        <HeadArticle>
+          <ArticleCard
+            type="large"
+            avatar={avatar?.childImageSharp.sizes}
+            date={date}
+            to={fields.slug}
+            originalTitle={title}
+            excerpt={excerpt}
+          />
           <SideBlogList blogs={randomList} text1="ピック" text2="アップ" />
-      </HeadArticle>
-      {blogs.slice(1, blogs.length).map(
-        ({
-          node: {
-            id,
-            frontmatter: { title, avatar, date },
-            fields: { slug },
-            excerpt
-          },
-        }) => (
-        <Link  to={slug} >
-            <Article key={id}>
-              <Card>
-                <ArticleCard type='default' avatar={avatar?.childImageSharp.sizes} date={date} to={slug} originalTitle={title} excerpt="" />
-              </Card>
-              <Info>
-                <SubInfo>{date}</SubInfo>
-                <Description>{excerpt}</Description>
-              </Info>
-          </Article>
-        </Link>
-        )
-      )}
-
-    </Layout>
+        </HeadArticle>
+        {blogs
+          .slice(1, blogs.length)
+          .map(
+            ({
+              node: {
+                id,
+                frontmatter: { title, avatar, date },
+                fields: { slug },
+                excerpt
+              }
+            }) => (
+              <Link to={slug}>
+                <Article key={id}>
+                  <Card>
+                    <ArticleCard
+                      type="default"
+                      avatar={avatar?.childImageSharp.sizes}
+                      date={date}
+                      to={slug}
+                      originalTitle={title}
+                      excerpt=""
+                    />
+                  </Card>
+                  <Info>
+                    <SubInfo>{date}</SubInfo>
+                    <Description>{excerpt}</Description>
+                  </Info>
+                </Article>
+              </Link>
+            )
+          )}
+      </Layout>
     </>
   )
 }

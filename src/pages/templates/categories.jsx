@@ -1,14 +1,14 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 import Layout from "../components/Layout"
-import styled from 'styled-components'
-import { Styles, Responsive } from '../../styles/style'
+import styled from "styled-components"
+import { Styles, Responsive } from "../../styles/style"
 import ArticleCard from "../components/atoms/ArticleCard"
 import Button from "../components/atoms/Button"
 import SideBlogList from "../components/atoms/SideBlogList"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import  Pankuzu from '../components/atoms/Pankuzu'
-import SEO from '../components/seo'
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
+import Pankuzu from "../components/atoms/Pankuzu"
+import SEO from "../components/seo"
 
 const Article = styled.div`
   display: flex;
@@ -33,43 +33,42 @@ const Info = styled.div`
   justify-content: flex-start;
   height: 70px;
   box-sizing: border-box;
-`;
+`
 
 const SubInfo = styled.div`
-    font-family: ${Styles.FONT_FAMILY.EN};
-    font-size: ${Styles.FONT_SIZE.SMALL}px;
-    color: ${Styles.COLOR.LIGHTGLAY};
-    margin: 0px;
-    margin-bottom: 10px;
-`;
+  font-family: ${Styles.FONT_FAMILY.EN};
+  font-size: ${Styles.FONT_SIZE.SMALL}px;
+  color: ${Styles.COLOR.LIGHTGLAY};
+  margin: 0px;
+  margin-bottom: 10px;
+`
 
 const Description = styled.div`
-    width: 100%;
-    color: ${Styles.COLOR.LIGHTGLAY};
-    font-size: ${Styles.FONT_SIZE.MIDDLE}px;
-    ${Responsive("sm")} {
-      font-size: ${Styles.FONT_SIZE.SMALL}px;
-    }
-`;
+  width: 100%;
+  color: ${Styles.COLOR.LIGHTGLAY};
+  font-size: ${Styles.FONT_SIZE.MIDDLE}px;
+  ${Responsive("sm")} {
+    font-size: ${Styles.FONT_SIZE.SMALL}px;
+  }
+`
 
 const Title = styled.div`
-    display: flex;
-    position: relative;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    align-items: center;
-    width: 100%;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 8px;
-    margin-bottom: 8px;
-  `;
+  display: flex;
+  position: relative;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 8px;
+  margin-bottom: 8px;
+`
 
 export default ({
   data: {
-    allMarkdownRemark: { totalCount, edges: blogs },
+    allMarkdownRemark: { totalCount, edges: blogs }
   },
-    pageContext
-  
+  pageContext
 }) => {
   const createRandom = () => {
     let arr = []
@@ -78,56 +77,84 @@ export default ({
       return blogs
     }
     while (arr.length < 5) {
-        var random = Math.floor( Math.random() * (blogs.length - 1) ) ;
-        arr.push(exceptLatest[random])
+      var random = Math.floor(Math.random() * (blogs.length - 1))
+      arr.push(exceptLatest[random])
     }
     return arr
   }
 
   const randomList = createRandom()
- console.log(`category`, pageContext, blogs)
-  
+  const [ first ] = blogs || []
+  if (!first) {
+    return <></>
+  }
+  const { frontmatter, fields, excerpt } = first.node
+  const { avatar, date, title, categories } = frontmatter
+  const [category] = categories
+
   return (
     <>
-    <SEO title="カテゴリ記事一覧"
-      description="カテゴリ記事一覧"
-      image="twitterCard.png"
-      lang="ja"
-/>
-    <Layout>
-      <Pankuzu middle={blogs[0].node.frontmatter.categories[0]} />
-      <HeadArticle>
-        <ArticleCard type='large' avatar={blogs[0].node.frontmatter.avatar?.childImageSharp.sizes} date={blogs[0].node.frontmatter.date} to={blogs[0].node.fields.slug} originalTitle={blogs[0].node.frontmatter.title} excerpt={blogs[0].node.excerpt}/>
+      <SEO
+        title="カテゴリ記事一覧"
+        description="カテゴリ記事一覧"
+        image="twitterCard.png"
+        lang="ja"
+      />
+      <Layout>
+        <Pankuzu middle={category} />
+        <HeadArticle>
+          <ArticleCard
+            type="large"
+            avatar={avatar.childImageSharp.sizes}
+            date={date}
+            to={fields.slug}
+            originalTitle={title}
+            excerpt={excerpt}
+          />
           <SideBlogList blogs={randomList} text1="ピック" text2="アップ" />
-      </HeadArticle>
-      <Title>
-        <Button text1="過去の" text2="記事" type="SECONDARY"/>
-      </Title>
-      {blogs.slice(1, blogs.length).map(
-        ({
-          node: {
-            id,
-            html,
-            frontmatter: { title, avatar, date },
-            fields: { slug },
-            excerpt
-          },
-        }) => (
-        <Link  to={slug} >
-            <Article key={id}>
-              <Card>
-                <ArticleCard type='default' avatar={avatar?.childImageSharp.sizes} date={date} to={slug} originalTitle={title} excerpt="" />
-              </Card>
-              <Info>
-                <SubInfo><FontAwesomeIcon icon={['far', 'clock']} /> {date}</SubInfo>
-                <Description>{excerpt}<br /><br /> &gt;&gt;続きはこちら</Description>
-              </Info>
-          </Article>
-        </Link>
-        )
-      )}
-
-    </Layout>
+        </HeadArticle>
+        <Title>
+          <Button text1="過去の" text2="記事" type="SECONDARY" />
+        </Title>
+        {blogs
+          .slice(1, blogs.length)
+          .map(
+            ({
+              node: {
+                id,
+                html,
+                frontmatter: { title, avatar, date },
+                fields: { slug },
+                excerpt
+              }
+            }) => (
+              <Link to={slug}>
+                <Article key={id}>
+                  <Card>
+                    <ArticleCard
+                      type="default"
+                      avatar={avatar?.childImageSharp.sizes}
+                      date={date}
+                      to={slug}
+                      originalTitle={title}
+                      excerpt=""
+                    />
+                  </Card>
+                  <Info>
+                    <SubInfo>
+                      <FontAwesomeIcon icon={["far", "clock"]} /> {date}
+                    </SubInfo>
+                    <Description>
+                      {excerpt}
+                      <br />
+                      <br /> &gt;&gt;続きはこちら
+                    </Description>
+                  </Info>
+                </Article>
+              </Link>
+            )
+          )}
+      </Layout>
     </>
   )
 }

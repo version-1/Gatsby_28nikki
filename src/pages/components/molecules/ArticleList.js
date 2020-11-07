@@ -1,9 +1,9 @@
 import React from "react"
-import styled from 'styled-components'
+import styled from "styled-components"
 import ArticleCard from "../atoms/ArticleCard"
 import Button from "../atoms/Button"
-import {categoryMap} from "../../../styles/maps"
-import { Responsive } from '../../../styles/style'
+import { categoryMap } from "../../../styles/maps"
+import { Responsive } from "../../../styles/style"
 
 const Articles = styled.div`
   display: flex;
@@ -18,8 +18,7 @@ const Articles = styled.div`
   ${Responsive("sm")} {
     justify-content: space-between;
   }
-
-`;
+`
 
 const Title = styled.div`
   display: flex;
@@ -31,33 +30,48 @@ const Title = styled.div`
   border-bottom: 1px solid #ccc;
   padding-bottom: 8px;
   margin-bottom: 8px;
-`;
+`
 
-const ArticleList = (props) => {
-  const {
-    blogs,
-    category
-    } = props;
+const ArticleList = props => {
+  const { blogs, category: key } = props
+
+  const category = categoryMap[key]
+  if (!category || !blogs) {
+    return <></>
+  }
+
   return (
     <>
       <Title>
-        <Button type="SECONDARY" text1={categoryMap[category].name} to={categoryMap[category].url}/>
+        <Button type="SECONDARY" text1={category.name} to={category.url} />
       </Title>
       <Articles>
-        {blogs.map(
+        {blogs?.map(
           ({
             node: {
               id,
               frontmatter: { title, date, avatar },
               fields: { slug },
-              excerpt,
+              excerpt
             }
           }) => (
-            <ArticleCard key={title} avatar={avatar?.childImageSharp.sizes} date={date} to={slug} originalTitle={title} excerpt={excerpt}/>
+            <ArticleCard
+              key={title}
+              avatar={avatar?.childImageSharp.sizes}
+              date={date}
+              to={slug}
+              originalTitle={title}
+              excerpt={excerpt}
+            />
           )
         )}
-        <ArticleCard key={category} to={`${categoryMap[category].url}/`} originalTitle={categoryMap[category].name} type="several" excerpt={category} />
-     </Articles>
+        <ArticleCard
+          to={`${category.url}/`}
+          originalTitle={category.name}
+          type="several"
+          excerpt={key}
+        />
+      </Articles>
     </>
   )
 }

@@ -1,6 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby"
-import styled from 'styled-components'
+import styled from "styled-components"
 import Layout from "./components/Layout"
 import ArticleCard from "./components/atoms/ArticleCard"
 import ArticleList from "./components/molecules/ArticleList"
@@ -10,56 +10,64 @@ import SEO from "./components/seo"
 
 const HeadArticle = styled.div`
   display: flex;
-`;
+`
 
 export default ({
   data: {
     latest: { edges: blogs },
     categoriesAllMarkdownRemark: { group },
-    englishArticlesAll: {edges: englishBlogs},
-    canadaArticlesAll: {edges: studyAbroadBlogs},
-    recipeArticlesAll: {edges: recipeBlogs},
-    programmingArticlesAll: {edges: programmingBlogs},
-    businessArticlesAll: {edges: businessBlogs},
-    healthArticlesAll: {edges: healthBlogs},
-    othersArticlesAll: {edges: othersBlogs},
-    recentlyAllMarkdownRemark: { edges: recentlyBlogs },
+    englishArticlesAll: { edges: englishBlogs },
+    canadaArticlesAll: { edges: studyAbroadBlogs },
+    recipeArticlesAll: { edges: recipeBlogs },
+    programmingArticlesAll: { edges: programmingBlogs },
+    businessArticlesAll: { edges: businessBlogs },
+    healthArticlesAll: { edges: healthBlogs },
+    othersArticlesAll: { edges: othersBlogs },
+    recentlyAllMarkdownRemark: { edges: recentlyBlogs }
   }
 }) => {
-
   const map = {
-    "english" : englishBlogs,
-    "study-abroad" : studyAbroadBlogs,
-    "business" : businessBlogs,
-    "programming" : programmingBlogs, 
-    "recipe" : recipeBlogs,
-    "health" : healthBlogs,
-    "others" : othersBlogs
-    }
+    english: englishBlogs,
+    "study-abroad": studyAbroadBlogs,
+    business: businessBlogs,
+    programming: programmingBlogs,
+    recipe: recipeBlogs,
+    health: healthBlogs,
+    others: othersBlogs
+  }
+
+  const [ first ] = blogs || []
+  if (!first) {
+    return <></>
+  }
+  const { frontmatter, fields, excerpt } = first.node
+  const { avatar, date, title } = frontmatter
 
   return (
     <>
-    <SEO title="ニッパチニッキ"
-      image="twitterCard.png"
-      lang="ja"
-/>
-  <Layout page={"top"}>
-    <Pankuzu />
-    <HeadArticle>
-      <ArticleCard type='large' avatar={blogs[0].node.frontmatter.avatar?.childImageSharp.sizes} date={blogs[0].node.frontmatter.date} to={blogs[0].node.fields.slug} originalTitle={blogs[0].node.frontmatter.title} excerpt={blogs[0].node.excerpt}/>
-      <SideBlogList blogs={recentlyBlogs} text1="最近の" text2="投稿" />
-    </HeadArticle>
-    {Object.keys(map).map(
-      (key) => {
-        if (!map[key] || map[key].length === 0) {
-          return null
-        }
-        return <ArticleList blogs={map[key]} category={key}/>
-      }
-    )}
-  </Layout>
-　 </>
-)
+      <SEO title="ニッパチニッキ" image="twitterCard.png" lang="ja" />
+      <Layout page={"top"}>
+        <Pankuzu />
+        <HeadArticle>
+          <ArticleCard
+            type="large"
+            avatar={avatar.childImageSharp.sizes}
+            date={date}
+            to={fields.slug}
+            originalTitle={title}
+            excerpt={excerpt}
+          />
+          <SideBlogList blogs={recentlyBlogs} text1="最近の" text2="投稿" />
+        </HeadArticle>
+        {Object.keys(map).map(key => {
+          if (!map[key] || map[key].length === 0) {
+            return null
+          }
+          return <ArticleList blogs={map[key]} category={key} />
+        })}
+      </Layout>
+    </>
+  )
 }
 
 export const query = graphql`
@@ -88,9 +96,9 @@ export const query = graphql`
       }
     }
     latest: allMarkdownRemark(
-      limit: 1,
-      sort: { fields: [frontmatter___date], 
-      order: DESC }) {
+      limit: 1
+      sort: { fields: [frontmatter___date], order: DESC }
+    ) {
       edges {
         node {
           id
@@ -116,11 +124,10 @@ export const query = graphql`
       }
     }
     businessArticlesAll: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], 
-      order: DESC}
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { categories: { in: ["business"] } } }
       limit: 5
-      ) {
+    ) {
       edges {
         node {
           id
@@ -147,11 +154,10 @@ export const query = graphql`
       }
     }
     englishArticlesAll: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], 
-      order: DESC}
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { categories: { in: ["english"] } } }
       limit: 5
-      ) {
+    ) {
       edges {
         node {
           id
@@ -178,11 +184,10 @@ export const query = graphql`
       }
     }
     canadaArticlesAll: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], 
-      order: DESC}
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { categories: { in: ["study-abroad"] } } }
       limit: 5
-      ) {
+    ) {
       edges {
         node {
           id
@@ -209,11 +214,10 @@ export const query = graphql`
       }
     }
     recipeArticlesAll: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], 
-      order: DESC}
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { categories: { in: ["recipe"] } } }
       limit: 5
-      ) {
+    ) {
       edges {
         node {
           id
@@ -240,11 +244,10 @@ export const query = graphql`
       }
     }
     programmingArticlesAll: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], 
-      order: DESC}
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { categories: { in: ["programming"] } } }
-          limit: 5
-      ) {
+      limit: 5
+    ) {
       edges {
         node {
           id
@@ -271,11 +274,10 @@ export const query = graphql`
       }
     }
     healthArticlesAll: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], 
-      order: DESC}
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { categories: { in: ["health"] } } }
-          limit: 5
-      ) {
+      limit: 5
+    ) {
       edges {
         node {
           id
@@ -302,11 +304,10 @@ export const query = graphql`
       }
     }
     othersArticlesAll: allMarkdownRemark(
-      sort: { fields: [frontmatter___date], 
-      order: DESC}
+      sort: { fields: [frontmatter___date], order: DESC }
       filter: { frontmatter: { categories: { in: ["others"] } } }
-          limit: 5
-      ) {
+      limit: 5
+    ) {
       edges {
         node {
           id
